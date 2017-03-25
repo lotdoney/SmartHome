@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Control_Dialog</class>
+ <widget class="QDialog" name="Control_Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>188</width>
+    <height>532</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="SettingControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 系统设置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/setting.png</normaloff>:/control_icon/image/setting.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="LightControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 灯光控制</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/light.png</normaloff>:/control_icon/image/light.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="CurtainControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 窗帘控制</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/curtain.png</normaloff>:/control_icon/image/curtain.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="AirControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 空调控制</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/air.png</normaloff>:/control_icon/image/air.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="SecurityControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 安防控制</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/security.png</normaloff>:/control_icon/image/security.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="TVControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string> 电视控制</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/tv.png</normaloff>:/control_icon/image/tv.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="TalkbackControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string> 对讲控制</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/talkback.png</normaloff>:/control_icon/image/talkback.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="MusicControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 背景音乐</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/music.png</normaloff>:/control_icon/image/music.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="MoveControl">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton
+{
+color: rgb(0, 0, 0);
+	font: 14pt &quot;宋体&quot;;
+	border-image: url(:/background/image/buttonback.png);
+}
+QPushButton:checked
+{
+color: rgb(255, 255, 255);
+border-image: url(:/background/image/buttonback_p.png);
+}
+</string>
+       </property>
+       <property name="text">
+        <string> 家庭影院</string>
+       </property>
+       <property name="icon">
+        <iconset resource="resource.qrc">
+         <normaloff>:/control_icon/image/move.png</normaloff>:/control_icon/image/move.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections/>
+</ui>
