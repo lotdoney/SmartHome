@@ -39,6 +39,8 @@
     </qresource>
     <qresource prefix="/">
         <file>my.qss</file>
-        <file>my_dark.qss</file>
+        <file>image/checkbox.png</file>
+        <file>image/down_arrow.png</file>
+        <file>image/handle.png</file>
     </qresource>
 </RCC>
