@@ -12,7 +12,7 @@ air_Dialog::air_Dialog(QWidget *parent) :
 
 	setWindowFlags(Qt::FramelessWindowHint); //把窗口设置成没框架的
 
-	connect(mSerialPort, SIGNAL(readyRead()), this, SLOT(serialDataProcess()));// 连接串口数据与显示槽
+	connect(mSerialPort, SIGNAL(readFinish()), this, SLOT(serialDataProcess()));// 连接串口数据与显示槽
 
 	connect(this->ui->dialTemp, SIGNAL(actionTriggered(int)), this, SLOT(writeTempData()));
 	connect(this->ui->dialRh, SIGNAL(actionTriggered(int)), this, SLOT(writeTempData()));
@@ -46,10 +46,13 @@ void air_Dialog::on_dialTemp_valueChanged(int value)
 
 void air_Dialog::serialDataProcess()
 {
-	if("temp" == serialReceiveData.at(0)){
+	if(!serialReceiveData.isEmpty()){
 
-		ui->label_temp_2->setText(serialReceiveData.at(2));
-		ui->label_temp->setText(serialReceiveData.at(1));
+		if("temp" == serialReceiveData.at(0)){
+
+			ui->label_temp_2->setText(serialReceiveData.at(2));
+			ui->label_temp->setText(serialReceiveData.at(1));
+		}
 	}
 }
 

@@ -13,7 +13,7 @@ DialogSerial::DialogSerial(QWidget *parent) :
 
 	initPort();
 	on_pushButtonOpenPort_clicked();
-	connect(mSerialPort, SIGNAL(readyRead()), this, SLOT(serialDataDisplay()));// 连接串口数据与显示槽
+	connect(mSerialPort, SIGNAL(readFinish()), this, SLOT(serialDataDisplay()));// 连接串口数据与显示槽
 
 	this->setFixedSize(420, 550);
 }
@@ -227,9 +227,10 @@ void DialogSerial::on_pushButton_clicked()
 
 void DialogSerial::serialDataDisplay()
 {
-	foreach (const QString &tmp, serialReceiveData) {		//变量Qlist 每个值赋给tmp
+	if(!serialReceiveData.isEmpty()){
 
-		ui->textBrowser_2->append(tmp);
-
+		foreach (const QString &tmp, serialReceiveData) {		//变量Qlist 每个值赋给tmp
+			ui->textBrowser_2->append(tmp);
+		}
 	}
 }

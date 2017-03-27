@@ -42,6 +42,7 @@ private:
 signals:
 
 	void writeFinish();
+
 };
 
 #endif // AIR_DIALOG_H

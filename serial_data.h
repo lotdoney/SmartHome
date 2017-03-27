@@ -21,6 +21,9 @@ private slots:
 	void slotSendData();
 	void slotReadData();
 
+signals:
+	void readFinish();
+
 };
 
 
