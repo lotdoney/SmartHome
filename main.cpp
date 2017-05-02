@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 //    Light_Window_Dialog w;
 //   Air_Window_Dialog w;
 //    Curtain_Window_Dialog w;
-    w.show();
+	w.show();
 
     return a.exec();
 }

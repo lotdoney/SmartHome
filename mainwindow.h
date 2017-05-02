@@ -13,6 +13,9 @@
 #include <QDebug>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#include <QList>
+
+class QToolButton;
 
 
 extern SerialPort *mSerialPort;
@@ -29,12 +32,24 @@ class MainWindow : public QMainWindow
 public:
 	explicit MainWindow(QWidget *parent = 0);
 	~MainWindow();
+public slots:
+	void on_toolButton_2_clicked();
+	void on_toolButton_3_clicked();
+private slots:
+	void changeButtonStatus();
 
 private slots:
 
-	void on_listWidget_clicked(const QModelIndex &index);
+//	void on_listWidget_clicked(const QModelIndex &index);
+
+	void on_toolButton_1_clicked();
+
+	void on_toolButton_4_clicked();
 
 private:
+	QList<QToolButton *> buttons;
+
+	void initButtons();
 	Ui::MainWindow *ui;
 };
 

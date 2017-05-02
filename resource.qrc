@@ -1,46 +1,9 @@
 <RCC>
-    <qresource prefix="/control_icon">
-        <file>image/air.png</file>
-        <file>image/curtain.png</file>
-        <file>image/light.png</file>
-        <file>image/move.png</file>
-        <file>image/music.png</file>
-        <file>image/security.png</file>
-        <file>image/talkback.png</file>
-        <file>image/tv.png</file>
-        <file>image/setting.png</file>
-        <file>image/mainwindow.png</file>
-    </qresource>
-    <qresource prefix="/background">
-        <file>image/timedialog.png</file>
-        <file>image/back_left.png</file>
-        <file>image/back_right.png</file>
-        <file>image/button_black.png</file>
-        <file>image/button_white.png</file>
-        <file>image/selectback.png</file>
-        <file>image/button_yellow.png</file>
-        <file>image/background.png</file>
-        <file>image/buttonback.png</file>
-        <file>image/buttonback_p.png</file>
-    </qresource>
-    <qresource prefix="/weather">
-        <file>image/clear_to_overcast.png</file>
-        <file>image/cloudy.png</file>
-        <file>image/fine.png</file>
-        <file>image/heavy_rain.png</file>
-        <file>image/heavy_snow.png</file>
-        <file>image/scouther.png</file>
-        <file>image/sleet.png</file>
-        <file>image/spit.png</file>
-        <file>image/thundershower.png</file>
-    </qresource>
-    <qresource prefix="/gif">
-        <file>image/curtain.gif</file>
-    </qresource>
     <qresource prefix="/">
-        <file>my.qss</file>
         <file>image/checkbox.png</file>
         <file>image/down_arrow.png</file>
         <file>image/handle.png</file>
+        <file>my.qss</file>
     </qresource>
+    <qresource prefix="/images"/>
 </RCC>
