@@ -25,6 +25,7 @@ void SerialPort::slotSendData()
 	QString tmp = serialSendData.join('*');
 	//list使用*连接
 	tmp = tmp.prepend('#');
+	tmp = tmp.append("*");
 	//加#作为引导符
 	mSerialPort->write(tmp.toLatin1());
 }

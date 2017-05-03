@@ -14,6 +14,13 @@
 #include <qwt_legend.h>
 #include <qwt_dial.h>
 #include <qwt_plot_grid.h>
+#include "serial_data.h"
+
+
+extern QList<QByteArray> serialReceiveData;
+extern QStringList serialSendData;
+extern SerialPort *mSerialPort;
+
 
 namespace Ui {
 class PowerDialog;
@@ -27,8 +34,13 @@ public:
 	explicit PowerDialog(QWidget *parent = 0);
 	~PowerDialog();
 
+
+	void writeTempData();
 private slots:
 	void plotRefrash();
+	void serialDataProcess();
+	void writePowrData();
+
 private:
 	Ui::PowerDialog *ui;
 	void initPlot();
@@ -37,6 +49,10 @@ private:
 	QVector<double> yPower;
 	QVector<double> xTime;
 	QwtPlotCurve * curve;
+
+signals:
+
+	void writeFinish();
 };
 
 #endif // POWER_DIALOG_H

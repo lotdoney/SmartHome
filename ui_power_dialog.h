@@ -16,6 +16,8 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLCDNumber>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "qwt_dial.h"
@@ -28,11 +30,15 @@ class Ui_PowerDialog
 {
 public:
     QwtDial *Dial;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QwtThermo *Thermo;
     QwtPlot *qwtPlot;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout_2;
+    QLCDNumber *lcdNumber;
+    QSlider *horizontalSlider;
 
     void setupUi(QDialog *PowerDialog)
     {
@@ -42,7 +48,7 @@ public:
         Dial = new QwtDial(PowerDialog);
         Dial->setObjectName(QStringLiteral("Dial"));
         Dial->setEnabled(true);
-        Dial->setGeometry(QRect(30, 300, 158, 144));
+        Dial->setGeometry(QRect(300, 260, 158, 144));
         Dial->setValue(51);
         Dial->setStepAlignment(false);
         Dial->setReadOnly(false);
@@ -54,10 +60,10 @@ public:
         Dial->setMode(QwtDial::RotateNeedle);
         Dial->setOrigin(120);
         Dial->setMaxScaleArc(240);
-        widget = new QWidget(PowerDialog);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(21, 21, 601, 234));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(PowerDialog);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(21, 21, 601, 141));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout = new QVBoxLayout();
@@ -65,19 +71,46 @@ public:
 
         horizontalLayout->addLayout(verticalLayout);
 
-        Thermo = new QwtThermo(widget);
+        Thermo = new QwtThermo(layoutWidget);
         Thermo->setObjectName(QStringLiteral("Thermo"));
         Thermo->setUpperBound(10);
 
         horizontalLayout->addWidget(Thermo);
 
-        qwtPlot = new QwtPlot(widget);
+        qwtPlot = new QwtPlot(layoutWidget);
         qwtPlot->setObjectName(QStringLiteral("qwtPlot"));
 
         horizontalLayout->addWidget(qwtPlot);
 
+        widget = new QWidget(PowerDialog);
+        widget->setObjectName(QStringLiteral("widget"));
+        widget->setGeometry(QRect(20, 320, 221, 61));
+        horizontalLayout_2 = new QHBoxLayout(widget);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
+        lcdNumber = new QLCDNumber(widget);
+        lcdNumber->setObjectName(QStringLiteral("lcdNumber"));
+        lcdNumber->setFrameShape(QFrame::NoFrame);
+        lcdNumber->setFrameShadow(QFrame::Plain);
+        lcdNumber->setSmallDecimalPoint(false);
+        lcdNumber->setDigitCount(2);
+        lcdNumber->setSegmentStyle(QLCDNumber::Flat);
+
+        horizontalLayout_2->addWidget(lcdNumber);
+
+        horizontalSlider = new QSlider(widget);
+        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
+        horizontalSlider->setMaximum(10);
+        horizontalSlider->setPageStep(1);
+        horizontalSlider->setOrientation(Qt::Horizontal);
+        horizontalSlider->setTickPosition(QSlider::TicksAbove);
+        horizontalSlider->setTickInterval(0);
+
+        horizontalLayout_2->addWidget(horizontalSlider);
+
 
         retranslateUi(PowerDialog);
+        QObject::connect(horizontalSlider, SIGNAL(valueChanged(int)), lcdNumber, SLOT(display(int)));
 
         QMetaObject::connectSlotsByName(PowerDialog);
     } // setupUi
