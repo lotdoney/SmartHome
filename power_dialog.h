@@ -48,7 +48,8 @@ private:
 
 	QVector<double> yPower;
 	QVector<double> xTime;
-	QwtPlotCurve * curve;
+	QwtPlotCurve  curve;
+
 
 signals:
 
