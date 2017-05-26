@@ -17,7 +17,9 @@ MainWindow::MainWindow(QWidget *parent) :
 	air_Dialog   *dialogAir=new air_Dialog();
 	LightWindowDialog *dialogLight = new LightWindowDialog();
 	DialogSerial *dialogSerial = new DialogSerial();
-	PowerDialog *dialogPower = new PowerDialog();
+	qDebug() << "serial initial completed!";
+	PowerDialog *dialogPower = new PowerDialog(this);
+	qDebug() << "power initial completed";
 
 
 
@@ -32,10 +34,13 @@ MainWindow::MainWindow(QWidget *parent) :
 //	readThread->start();
 
 	ui->statusbar->showMessage("warning!");
+
+
 }
 
 MainWindow::~MainWindow()
 {
+
 	delete ui;
 }
 

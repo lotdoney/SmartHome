@@ -74,7 +74,6 @@ void DialogSerial::initPort()
 		ui->comboBoxStopBits->addItems(stopBitsList);
 		ui->comboBoxStopBits->setCurrentIndex(0);
 
-
 }
 
 

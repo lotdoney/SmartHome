@@ -41,6 +41,7 @@ private slots:
 	void serialDataProcess();
 	void writePowrData();
 
+	void writeFansData();
 private:
 	Ui::PowerDialog *ui;
 	void initPlot();
@@ -48,7 +49,7 @@ private:
 
 	QVector<double> yPower;
 	QVector<double> xTime;
-	QwtPlotCurve * curve;
+	QwtPlotCurve  curve;
 
 signals:
 

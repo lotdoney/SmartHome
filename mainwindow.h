@@ -1,13 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "read_thread.h"
+//#include "read_thread.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "time_dialog.h"
 #include "light_window_dialog.h"
 #include "air_dialog.h"
 #include "dialogserial.h"
+
 
 #include <QMainWindow>
 #include <QDebug>

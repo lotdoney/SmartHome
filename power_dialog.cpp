@@ -8,19 +8,21 @@ PowerDialog::PowerDialog(QWidget *parent) :
 	ui(new Ui::PowerDialog)
 {
 	ui->setupUi(this);
-	initPlot();
+	qDebug() << "power initial start! \n";
 
+	initPlot();
 	connect(mSerialPort, SIGNAL(readFinish()), this, SLOT(serialDataProcess()));// 连接串口数据与显示槽
 	connect(this, SIGNAL(writeFinish()), mSerialPort, SLOT(slotSendData()));
 
 	connect(ui->horizontalSlider,SIGNAL(valueChanged(int)),this,SLOT(writePowrData()));
 
-	QTimer *mTimer = new QTimer(this);
+//	QTimer *mTimer = new QTimer(this);
 
 //	connect(mTimer,SIGNAL(timeout()),this,SLOT(plotRefrash()));
-	mTimer->start(200);
+//	mTimer->start(200);
 
-//	startTimer(10);
+	startTimer(10);
+	qDebug() << "power initial completed";
 
 }
 
@@ -58,7 +60,7 @@ void PowerDialog::initPlot()
 	//使用鼠标左键平移
 	(void) new QwtPlotPanner( ui->qwtPlot->canvas() );
 
-	QwtPlotCurve *curve = new QwtPlotCurve("Acc_X");
+//QwtPlotCurve *curve 	= new QwtPlotCurve("Acc_X");
 
 
 	QwtPlotGrid *grid = new QwtPlotGrid;
@@ -74,24 +76,24 @@ void PowerDialog::initPlot()
 	//实例化
 
 
-	curve->setPen(QColor(Qt::white));
+	curve.setPen(QColor(Qt::white));
 	//加载数据
-//	curve->setSamples(time, val, 10);
-//	curve->setSamples(xTime,yPower);
+//	curve.setSamples(time, val, 10);
+//	curve.setSamples(xTime,yPower);
 	//加到plot，plot由IDE创建
 
-	curve->attach(ui->qwtPlot);
+	curve.attach(ui->qwtPlot);
 }
 
 void PowerDialog::timerEvent(QTimerEvent *)
 {
 
-	QwtPlotCurve *curve = new QwtPlotCurve("Acc_X");
+//	QwtPlotCurve *curve = new QwtPlotCurve("Acc_X");
 
 
 
-	curve->attach(ui->qwtPlot);
-	curve->setPen(QColor(Qt::white));
+	curve.attach(ui->qwtPlot);
+	curve.setPen(QColor(Qt::white));
 
 	ui->qwtPlot->setAxisScale(QwtPlot::xBottom, xTime.last()-300, xTime.last());
 
@@ -100,17 +102,24 @@ void PowerDialog::timerEvent(QTimerEvent *)
 
 	//最后一位为新数据（这里为随机数模拟）
 	yPower.append(yPower.last());
+
+
 	//重新加载数据
-	curve->setSamples(xTime, yPower);
+	curve.setSamples(xTime, yPower);
 
 //	qDebug() << yPower.last() << xTime.last();
+
 	//QwtPlot重绘，重要，没有这句不起作用
 	ui->qwtPlot->replot();
 
+	//设置状态条的值
 	ui->Thermo->setValue(yPower.last());
+
+	//清零向量
 
 	if(xTime.count() > 300)
 		xTime.remove(0, 300);
+
 	if(yPower.count() > 300)
 		yPower.remove(0,300);
 
@@ -144,4 +153,9 @@ void PowerDialog::writePowrData()
 	emit writeFinish();
 }
 
+void PowerDialog::writeFansData()
+{
+
+
+}
 
