@@ -1,4 +1,4 @@
-#include "air_dialog.h"
+#include "AirDialog/air_dialog.h"
 #include "ui_air_dialog.h"
 #include "SerialPort/serial_data.h"
 #include "commonhelper.h"

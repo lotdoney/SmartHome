@@ -12,12 +12,14 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 	//flag 设为窗口模式
-//	w.setWindowFlags(Qt::Window);
 
+//	w.setWindowFlags(Qt::Window);
+//	w.showFullScreen();
+
+	w.show();
 //    Light_Window_Dialog w;
 //   Air_Window_Dialog w;
 //    Curtain_Window_Dialog w;
-	w.showFullScreen();
 
     return a.exec();
 

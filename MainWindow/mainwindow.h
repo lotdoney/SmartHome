@@ -9,10 +9,10 @@
 
 #include "ui_mainwindow.h"
 #include "SerialPort/dialogserial.h"
-#include "time_dialog.h"
+#include "misc/timer/time_dialog.h"
 #include "light_window_dialog.h"
-#include "air_dialog.h"
-#include "power_dialog.h"
+#include "AirDialog/air_dialog.h"
+#include "PowerDialog/power_dialog.h"
 
 
 

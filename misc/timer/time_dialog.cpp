@@ -1,4 +1,4 @@
-#include "time_dialog.h"
+#include "misc/timer/time_dialog.h"
 #include "ui_time_dialog.h"
 #include "commonhelper.h"
 

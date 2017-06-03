@@ -1,5 +1,5 @@
-#ifndef POWER_DIALOG_H
-#define POWER_DIALOG_H
+#ifndef power_dialog_H
+#define power_dialog_H
 
 #include <QDialog>
 #include <QVector>
@@ -14,7 +14,8 @@
 #include <qwt_legend.h>
 #include <qwt_dial.h>
 #include <qwt_plot_grid.h>
-#include "serial_data.h"
+#include "SerialPort/serial_data.h"
+
 
 
 extern QList<QByteArray> serialReceiveData;
@@ -56,4 +57,4 @@ signals:
 	void writeFinish();
 };
 
-#endif // POWER_DIALOG_H
+#endif // PowerDialog/power_dialog_H

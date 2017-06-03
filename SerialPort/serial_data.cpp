@@ -2,9 +2,7 @@
 #include "dialogserial.h"
 
 QList<QByteArray> serialReceiveData;
-
 QStringList serialSendData;
-
 SerialPort *mSerialPort = new SerialPort();	//new 一个串口对象嘛
 
 

@@ -1,4 +1,4 @@
-#include "power_dialog.h"
+#include "PowerDialog/power_dialog.h"
 #include "ui_power_dialog.h"
 
 
@@ -21,7 +21,7 @@ PowerDialog::PowerDialog(QWidget *parent) :
 //	connect(mTimer,SIGNAL(timeout()),this,SLOT(plotRefrash()));
 //	mTimer->start(200);
 
-	startTimer(10);
+	startTimer(100);
 	qDebug() << "power initial completed";
 
 }
@@ -101,7 +101,8 @@ void PowerDialog::timerEvent(QTimerEvent *)
 	xTime.append(xTime.last()+1);
 
 	//最后一位为新数据（这里为随机数模拟）
-	yPower.append(yPower.last());
+//	yPower.append(yPower.last());
+	yPower.append(rand()%10);
 
 
 	//重新加载数据
@@ -117,10 +118,10 @@ void PowerDialog::timerEvent(QTimerEvent *)
 
 	//清零向量
 
-	if(xTime.count() > 300)
+	if(xTime.count() > 600)
 		xTime.remove(0, 300);
 
-	if(yPower.count() > 300)
+	if(yPower.count() > 600)
 		yPower.remove(0,300);
 
 }
