@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-	CommonHelper::setStyle(":/my.qss");
+	CommonHelper::setStyle(":/Src/my.qss");
 
     MainWindow w;
 	//flag 设为窗口模式

@@ -7,6 +7,7 @@
 QT += core
 QT += core gui
 QT += serialport
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 DEFINES += QT_DLL QWT_DLL
 
@@ -20,23 +21,30 @@ CONFIG(debug,debug|release) {
 
 INCLUDEPATH += E:\Qt\Qt5.3.2\5.3\mingw482_32\include\Qwt
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = intelligent
-TEMPLATE = app
+
+#TARGET = intelligent
+#TEMPLATE = app
 
 #ICON +=
 
+
+TEMPLATE = app
+TARGET = intelligent
 
 
 include(SerialPort/SerialPort.pri)
 include(MainWindow/MainWindow.pri)
 include(StatueDialog/StatueDialog.pri)
 include(AirDialog/AirDialog.pri)
-include(misc/timer/TimeDialog.pri)
 include(PowerDialog/PowerDialog.pri)
+include(misc/timer/timeDialog.pri)
+include(misc/TTS/TTS.pri)
 
 
+#SUBDIRS += misc/misc.pro \
+
+CONFIG += ordered
 
 SOURCES += \
     light_window_dialog.cpp \

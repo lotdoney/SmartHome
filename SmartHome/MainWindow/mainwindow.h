@@ -13,7 +13,7 @@
 #include "light_window_dialog.h"
 #include "AirDialog/air_dialog.h"
 #include "PowerDialog/power_dialog.h"
-
+#include "misc/TTS/TTSDialog.h"
 
 
 
@@ -40,19 +40,24 @@ public slots:
 private slots:
 	void changeButtonStatus();
 
-private slots:
-
 //	void on_listWidget_clicked(const QModelIndex &index);
 
 	void on_toolButton_1_clicked();
 
 	void on_toolButton_4_clicked();
 
+	void on_pushButtonTTS1_clicked();
+
+	void on_pushButtonTTS_clicked();
+
 private:
+
+	Ui::MainWindow *ui;
+
+//	TTSDialog mTTSDialog;
 	QList<QToolButton *> buttons;
 
 	void initButtons();
-	Ui::MainWindow *ui;
 };
 
 #endif // MAINWINDOW_H

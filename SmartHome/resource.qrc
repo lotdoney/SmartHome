@@ -1,9 +1,39 @@
 <RCC>
     <qresource prefix="/">
-        <file>image/checkbox.png</file>
-        <file>image/down_arrow.png</file>
-        <file>image/handle.png</file>
-        <file>my.qss</file>
+        <file>Src/Gifs/load.gif</file>
+        <file>Src/image/air.png</file>
+        <file>Src/image/back_left.png</file>
+        <file>Src/image/back_right.png</file>
+        <file>Src/image/background.png</file>
+        <file>Src/image/button_black.png</file>
+        <file>Src/image/button_white.png</file>
+        <file>Src/image/button_yellow.png</file>
+        <file>Src/image/buttonback.png</file>
+        <file>Src/image/buttonback_p.png</file>
+        <file>Src/image/checkbox.png</file>
+        <file>Src/image/clear_to_overcast.png</file>
+        <file>Src/image/cloudy.png</file>
+        <file>Src/image/curtain.gif</file>
+        <file>Src/image/curtain.png</file>
+        <file>Src/image/down_arrow.png</file>
+        <file>Src/image/fine.png</file>
+        <file>Src/image/handle.png</file>
+        <file>Src/image/heavy_rain.png</file>
+        <file>Src/image/heavy_snow.png</file>
+        <file>Src/image/light.png</file>
+        <file>Src/image/mainwindow.png</file>
+        <file>Src/image/move.png</file>
+        <file>Src/image/music.png</file>
+        <file>Src/image/scouther.png</file>
+        <file>Src/image/security.png</file>
+        <file>Src/image/selectback.png</file>
+        <file>Src/image/setting.png</file>
+        <file>Src/image/sleet.png</file>
+        <file>Src/image/spit.png</file>
+        <file>Src/image/talkback.png</file>
+        <file>Src/image/thundershower.png</file>
+        <file>Src/image/timedialog.png</file>
+        <file>Src/image/tv.png</file>
+        <file>Src/my.qss</file>
     </qresource>
-    <qresource prefix="/images"/>
 </RCC>

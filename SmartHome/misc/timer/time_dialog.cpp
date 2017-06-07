@@ -1,6 +1,6 @@
-#include "misc/timer/time_dialog.h"
+#include "time_dialog.h"
 #include "ui_time_dialog.h"
-#include "commonhelper.h"
+//#include "commonhelper.h"
 
 Time_Dialog::Time_Dialog(QWidget *parent) :
     QDialog(parent),

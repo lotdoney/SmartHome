@@ -54,6 +54,12 @@ void air_Dialog::serialDataProcess()
 			ui->label_temp_2->setText(serialReceiveData.at(2));
 			ui->label_temp->setText(serialReceiveData.at(1));
 		}
+		if("fans" == serialReceiveData.at(0))
+		{
+			qDebug() << serialReceiveData.at(1);
+
+			ui->lcdNumber_3->display( serialReceiveData.at(1).toInt());
+		}
 	}
 }
 

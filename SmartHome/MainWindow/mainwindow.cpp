@@ -8,7 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui(new Ui::MainWindow)
 {
 	ui->setupUi(this);
+	this->setWindowFlags(Qt::FramelessWindowHint);
+
 	initButtons();
+
+
 	Time_Dialog *time_dialog=new Time_Dialog(this);
 //	ui->verticalLayout->addWidget(time_dialog);
 
@@ -25,15 +29,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-	ui->stackedWidget->addWidget(dialogSerial);
 	ui->stackedWidget->addWidget(dialogAir);
-	ui->stackedWidget->addWidget(dialogLight);
+	ui->stackedWidget->addWidget(dialogSerial);
 	ui->stackedWidget->addWidget(dialogPower);
+	ui->stackedWidget->addWidget(dialogLight);
 
-	ui->stackedWidget->setCurrentWidget(dialogPower);
+	ui->stackedWidget->setCurrentWidget(dialogAir);
 
-//	receiveThread *readThread = new receiveThread(this);	//线程读串口
-//	readThread->start();
+
 
 	ui->statusbar->showMessage("warning!");
 
@@ -99,4 +102,17 @@ void MainWindow::on_toolButton_3_clicked()
 void MainWindow::on_toolButton_4_clicked()
 {
 	ui->stackedWidget->setCurrentIndex(3);
+}
+
+void MainWindow::on_pushButtonTTS1_clicked()
+{
+
+}
+
+void MainWindow::on_pushButtonTTS_clicked()
+{
+	TTSDialog *mTTS = new TTSDialog();
+	mTTS->setModal(true);
+	mTTS->start();
+	mTTS->exec();
 }
