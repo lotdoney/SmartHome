@@ -28,8 +28,12 @@ void PullWord::replyFinish(QNetworkReply * reply)
 	QString result =reply->readAll();//得到http返回的所有信息
 	QList<QString> resultList = result.split('\n');
 
+	if(!result.isEmpty()){
 
+		pullWord = result;
+		emit pullWordSuccess();
 
+	}
 	qDebug() << result;
 	return ;
 }
@@ -44,5 +48,5 @@ void PullWord::pull(QString tmpStr)
 
 void PullWord::pulld(QString tmpStr)
 {
-	manager->get(QNetworkRequest(QUrl(API_request_url + "source=" + "毛毛君很胖胖哦" + "&param1=0" + "&param2=1")));
+	manager->get(QNetworkRequest(QUrl(API_request_url + "source=" + tmpStr + "&param1=0" + "&param2=1")));
 }

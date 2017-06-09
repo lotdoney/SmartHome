@@ -12,15 +12,14 @@
 #include <QScriptValue>
 #include <QScriptValueIterator>
 
-#include <windows.h>
 
 
 
 HttpRequest::HttpRequest()
 {
-	API_id = "";//百度ID
-	API_key = "";//百度API Key
-	API_secret_key = "";//百度Secret Key
+	API_id = "9585891";//百度ID
+	API_key = "xEEzSygRBRLUU3LwHMAZ4epu";//百度API Key
+	API_secret_key = "d4a4498c47ece3ee4913a3a62a37aeaa";//百度Secret Key
 	API_access_token="";
 
 	API_record_format="pcm";

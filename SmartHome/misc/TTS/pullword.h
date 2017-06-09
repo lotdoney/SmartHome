@@ -14,8 +14,9 @@ class PullWord : public QObject
 
 public:
 
-	explicit PullWord(void);
+	QString pullWord;
 
+	explicit PullWord(void);
 	~PullWord(void);
 
 	void pulld(QString tmpStr);
@@ -29,6 +30,9 @@ private:
 	QNetworkAccessManager *manager;
 	QString API_request_url;
 
+signals:
+
+	void pullWordSuccess();
 
 };
 

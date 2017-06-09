@@ -15,6 +15,7 @@ public:
 	explicit RecipeFormPage(QWidget *parent = 0);
 	~RecipeFormPage();
 
+	void setContents(QString tmp);
 private:
 	Ui::RecipeFormPage *ui;
 };

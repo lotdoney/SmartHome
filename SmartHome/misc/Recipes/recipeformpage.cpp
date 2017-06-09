@@ -6,9 +6,16 @@ RecipeFormPage::RecipeFormPage(QWidget *parent) :
 	ui(new Ui::RecipeFormPage)
 {
 	ui->setupUi(this);
+	ui->labelStep->setWordWrap(true);
 }
 
 RecipeFormPage::~RecipeFormPage()
 {
 	delete ui;
+}
+
+void RecipeFormPage::setContents(QString tmp)
+{
+	ui->labelStep->setText(tmp);
+
 }

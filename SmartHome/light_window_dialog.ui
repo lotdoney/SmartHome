@@ -71,7 +71,7 @@
 border-radius:10px;</string>
            </property>
            <property name="text">
-            <string>当前房间：主卧</string>
+            <string>当前位置：厨房</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
@@ -118,7 +118,7 @@ border-radius:10px;</string>
 border-radius:10px;</string>
              </property>
              <property name="text">
-              <string>荧光灯</string>
+              <string>燃气灶</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -234,7 +234,7 @@ QPushButton:checked
 border-radius:10px;</string>
              </property>
              <property name="text">
-              <string>主光源</string>
+              <string>油烟机</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -350,7 +350,7 @@ QPushButton:checked
 border-radius:10px;</string>
              </property>
              <property name="text">
-              <string>节能灯</string>
+              <string>窗体</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -465,7 +465,7 @@ QPushButton:checked
             </font>
            </property>
            <property name="text">
-            <string>彩色灯带</string>
+            <string>实时信息</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
@@ -496,7 +496,7 @@ QPushButton:checked
             </font>
            </property>
            <property name="text">
-            <string>红 </string>
+            <string>燃气灶</string>
            </property>
           </widget>
          </item>
@@ -558,7 +558,7 @@ QPushButton:checked
             </font>
            </property>
            <property name="text">
-            <string>绿 </string>
+            <string>油烟机</string>
            </property>
           </widget>
          </item>
@@ -620,7 +620,7 @@ QPushButton:checked
             </font>
            </property>
            <property name="text">
-            <string>蓝 </string>
+            <string>豆浆机</string>
            </property>
           </widget>
          </item>

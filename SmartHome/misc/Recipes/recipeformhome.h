@@ -1,6 +1,7 @@
 #ifndef RECIPEFORMHOME_H
 #define RECIPEFORMHOME_H
 
+#include "RecipeRequest.h"
 #include <QWidget>
 
 namespace Ui {
@@ -14,6 +15,9 @@ class RecipeFormHome : public QWidget
 public:
 	explicit RecipeFormHome(QWidget *parent = 0);
 	~RecipeFormHome();
+
+
+	void setContents(Recipe mRecipe);
 
 private:
 	Ui::RecipeFormHome *ui;
