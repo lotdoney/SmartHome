@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	ui->statusbar->showMessage("warning!");
 
-
+	mCamera.show();
 }
 
 MainWindow::~MainWindow()
@@ -116,4 +116,16 @@ void MainWindow::on_pushButtonTTS_clicked()
 	mTTS->setModal(true);
 	mTTS->start();
 	mTTS->exec();
+}
+
+void MainWindow::widgeIndexChanged(int pageChange)
+{
+	if (pageChange == PAGE_LEFT)
+	{
+		ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() - 1);
+	} 
+	else if (pageChange == PAGE_RIGHT)
+	{
+		ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() + 1);
+	}
 }

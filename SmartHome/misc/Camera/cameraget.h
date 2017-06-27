@@ -15,6 +15,9 @@
 #include <opencv/cv.hpp>
 #include <opencv2/opencv.hpp>
 
+#define PAGE_LEFT 0
+#define  PAGE_RIGHT 1
+
 using namespace cv;
 namespace Ui {
    class cameraGet;
@@ -74,6 +77,9 @@ private:
 
    //Mat to Qimage
    QImage Mat2QImage(const cv::Mat& mat);
+signals:
+   void pageChanged(int);
+
 };
 
 

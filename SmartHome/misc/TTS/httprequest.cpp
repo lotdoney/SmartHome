@@ -84,7 +84,7 @@ void HttpRequest::replyFinish(QNetworkReply * reply)
 
 			}
 			if(API_access_token==""){
-				QMessageBox::warning(NULL,"警告","access_token口令获取失败！");
+				QMessageBox::warning(NULL,"警告.","access_token口令获取失败.");
 			}
 			flag=0;
 
@@ -133,16 +133,16 @@ void HttpRequest::getText(QString para_API_id, QString para_API_access_token, QS
 	QFile file(para_API_record_path);
 	if( !(file.open(QIODevice::ReadOnly)))
 	{
-		QMessageBox::warning(NULL,"警告","打开语音文件失败！");
+		QMessageBox::warning(NULL,"警告.","打开语音文件失败.");
 		return;
 	}
-	/*读入文件流*/
+	/*读入文件流.*/
 	QDataStream in(&file);
 	m_buf =new char[file.size()];
 	in.readRawData(m_buf,file.size());
 	file.close();
 
-	/*发送http请求,目的是得到语音文本*/
+	/*发送http请求,目的是得到语音文本.*/
 	QString  getTextUrl = API_request_url + para_API_language + "&cuid=" + para_API_id + "&token=" + para_API_access_token;
 	QUrl url;
 	url.setUrl(getTextUrl);
@@ -154,9 +154,10 @@ void HttpRequest::getText(QString para_API_id, QString para_API_access_token, QS
 
 void HttpRequest::sendRequest()
 {
-	if(API_access_token == ""){
-		qDebug() << "API_access_token got failed!";
-	}else {
-		getText(API_id,API_access_token,API_language,API_record_path);
+	if (API_access_token == "") {
+		qDebug() << "API_access_token got failed.";
+	}
+	else {
+		getText(API_id, API_access_token, API_language, API_record_path);
 	}
 }

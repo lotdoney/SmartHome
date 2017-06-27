@@ -8,16 +8,7 @@
 class CommonHelper
 {
 public:
-/*没什么用的，他们的qss直接从mainwindow一套*/
-//	static void setStyle(const QString &style, QWidget *widget) {
-//		QFile file(style);
-//		file.open(QFile::ReadOnly);
-//		QTextStream filetext(&file);
-//		QString stylesheet = filetext.readAll();
-//		widget->setStyleSheet(stylesheet);
-//	   file.close();
 
-//	}
 
 	static void setStyle(const QString &style)
 	{

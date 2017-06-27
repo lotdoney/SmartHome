@@ -41,6 +41,7 @@ include(PowerDialog/PowerDialog.pri)
 include(misc/timer/timeDialog.pri)
 include(misc/TTS/TTS.pri)
 include(misc/Recipes/RecipeRequest.pri)
+include(misc/camera/camera.pri)
 
 #SUBDIRS += misc/misc.pro \
 

@@ -144,11 +144,13 @@ void cameraGet::readFarme()
 			{
 				printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<left\n");//镜像，没有flip过来，所以这里注意点。  
 				qDebug() << "Detect  left";
+				emit pageChanged(PAGE_LEFT);
 			}
 			if ((previousX - presentX) > 0)
 			{
 				printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>right\n");
 				qDebug() << "Detect right";
+				emit pageChanged(PAGE_RIGHT);
 			}
 			if ((previousY - presentY) < 0)
 			{

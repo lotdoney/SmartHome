@@ -15,7 +15,7 @@
 #include "PowerDialog/power_dialog.h"
 #include "misc/TTS/TTSDialog.h"
 #include "StatueDialog/status_dialog.h"
-
+#include "misc/Camera/cameraget.h"
 
 class QToolButton;
 
@@ -40,6 +40,7 @@ public slots:
 private slots:
 	void changeButtonStatus();
 
+	void widgeIndexChanged(int pageChange);
 //	void on_listWidget_clicked(const QModelIndex &index);
 
 	void on_toolButton_1_clicked();
@@ -50,10 +51,11 @@ private slots:
 
 	void on_pushButtonTTS_clicked();
 
+
 private:
 
 	Ui::MainWindow *ui;
-
+	cameraGet mCamera;
 //	TTSDialog mTTSDialog;
 	QList<QToolButton *> buttons;
 
