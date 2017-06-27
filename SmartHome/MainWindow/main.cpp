@@ -6,21 +6,24 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+	QApplication a(argc, argv);
 
-	CommonHelper::setStyle(":/Src/my.qss");
+	CommonHelper::setStyle(":/Res/my.qss");
+	QFont mFont;
+	mFont.setPointSize(18);
+	mFont.setFamily("msyh");
+	a.setFont(mFont);
 
-    MainWindow w;
+	MainWindow w;
 	//flag 设为窗口模式
 
-//	w.setWindowFlags(Qt::Window);
-//	w.showFullScreen();
 
-	w.show();
-//    Light_Window_Dialog w;
-//   Air_Window_Dialog w;
-//    Curtain_Window_Dialog w;
+	//w.setWindowFlags(Qt::Window);
 
-    return a.exec();
+	w.showFullScreen();
+
+
+
+	return a.exec();
 
 }

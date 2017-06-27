@@ -9,8 +9,9 @@ RecipeDialog::RecipeDialog(QWidget *parent) :
 
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setWindowOpacity(0.9);
+	this->showFullScreen();
 
-
+	startTimer(15000);
 
 
 	connect(&mRecipeRequest, SIGNAL(recipeGot()), this, SLOT(readRecipe()));
@@ -30,14 +31,12 @@ void RecipeDialog::readRecipe()
 	mRecipeFormHome->setContents(mRecipeRequest.mRecipe);
 	ui->stackedWidget->addWidget(mRecipeFormHome);
 
+	foreach (const Steps &tmp, mRecipeRequest.mRecipe.stepList) {
 
-
-
-	foreach (const QString &tmp, mRecipeRequest.mRecipe.steps) {
-
-		qDebug() << tmp;
+		qDebug() << tmp.step;
 		RecipeFormPage *mRecipeFormPage = new RecipeFormPage();
-		mRecipeFormPage->setContents(tmp);
+		mRecipeFormPage->setContents(tmp.step);
+		mRecipeFormPage->setNetworkImg(tmp.img);
 		ui->stackedWidget->addWidget(mRecipeFormPage);
 	}
 
@@ -49,6 +48,8 @@ void RecipeDialog::readRecipe()
 //	ui->labelIngred->setText(mRecipeRequest.mRecipe.ingredients);
 //	ui->labelBurden->setText(mRecipeRequest.mRecipe.burden);
 }
+
+
 
 void RecipeDialog::readyRecipe(QString tmp)
 {
@@ -69,4 +70,13 @@ void RecipeDialog::on_pushButtonPre_clicked()
 {
 	if(ui->stackedWidget->currentIndex() > 0)
 		ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() - 1);
+}
+
+void RecipeDialog::timerEvent(QTimerEvent *)
+{
+	ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() + 1);
+	if(ui->stackedWidget->currentIndex() == ui->stackedWidget->count() - 1){
+		this->close();
+	}
+
 }

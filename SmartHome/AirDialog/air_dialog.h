@@ -31,14 +31,16 @@ public:
 
 private slots:
 
-	void writeTempData();
 
 	void on_dialTemp_valueChanged(int value);
 	void serialDataProcess();
 	void on_dialRh_valueChanged(int value);
+	void writeTempData();
 private:
 
 	Ui::air_Dialog *ui;
+	void writeWindData(QString on_off);
+
 signals:
 
 	void writeFinish();

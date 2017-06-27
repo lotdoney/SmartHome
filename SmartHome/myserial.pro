@@ -40,7 +40,7 @@ include(AirDialog/AirDialog.pri)
 include(PowerDialog/PowerDialog.pri)
 include(misc/timer/timeDialog.pri)
 include(misc/TTS/TTS.pri)
-
+include(misc/Recipes/RecipeRequest.pri)
 
 #SUBDIRS += misc/misc.pro \
 

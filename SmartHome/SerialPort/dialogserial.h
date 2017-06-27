@@ -10,6 +10,7 @@
 #include "serial_data.h"
 
 extern QList<QByteArray> serialReceiveData;
+extern QStringList serialSendData;
 
 extern SerialPort *mSerialPort;
 

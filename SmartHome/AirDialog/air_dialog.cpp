@@ -59,6 +59,17 @@ void air_Dialog::serialDataProcess()
 			qDebug() << serialReceiveData.at(1);
 
 			ui->lcdNumber_3->display( serialReceiveData.at(1).toInt());
+
+			if(serialReceiveData.at(1).toInt() > 200){
+
+				writeWindData("+");
+			}
+
+			if(serialReceiveData.at(1).toInt() < 50){
+
+				writeWindData("-");
+			}
+
 		}
 	}
 }
@@ -75,6 +86,15 @@ void air_Dialog::writeTempData()
 	serialSendData.append("temp"); // 添加头
 	serialSendData.append(QString::number(ui->dialTemp->value()));
 	serialSendData.append(QString::number(ui->dialRh->value()));
+
+	emit writeFinish();
+}
+
+void air_Dialog::writeWindData(QString on_off)
+{
+	serialSendData.clear();
+	serialSendData.append("wind"); // 添加头
+	serialSendData.append(on_off);
 
 	emit writeFinish();
 }

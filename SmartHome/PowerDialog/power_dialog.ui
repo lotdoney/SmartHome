@@ -6,145 +6,153 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>640</width>
-    <height>480</height>
+    <width>962</width>
+    <height>931</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QwtDial" name="Dial">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>260</y>
-     <width>158</width>
-     <height>144</height>
-    </rect>
-   </property>
-   <property name="value">
-    <double>51.000000000000000</double>
-   </property>
-   <property name="stepAlignment">
-    <bool>false</bool>
-   </property>
-   <property name="readOnly">
-    <bool>false</bool>
-   </property>
-   <property name="tracking">
-    <bool>true</bool>
-   </property>
-   <property name="wrapping">
-    <bool>true</bool>
-   </property>
-   <property name="invertedControls">
-    <bool>true</bool>
-   </property>
-   <property name="lineWidth">
-    <number>2</number>
-   </property>
-   <property name="frameShadow">
-    <enum>QwtDial::Sunken</enum>
-   </property>
-   <property name="mode">
-    <enum>QwtDial::RotateNeedle</enum>
-   </property>
-   <property name="origin">
-    <double>120.000000000000000</double>
-   </property>
-   <property name="maxScaleArc">
-    <double>240.000000000000000</double>
-   </property>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>21</x>
-     <y>21</y>
-     <width>601</width>
-     <height>141</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout"/>
-    </item>
-    <item>
-     <widget class="QwtThermo" name="Thermo">
-      <property name="upperBound">
-       <double>10.000000000000000</double>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QwtPlot" name="qwtPlot"/>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>320</y>
-     <width>221</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
-    <item>
-     <widget class="QLCDNumber" name="lcdNumber">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Plain</enum>
-      </property>
-      <property name="smallDecimalPoint">
-       <bool>false</bool>
-      </property>
-      <property name="digitCount">
-       <number>2</number>
-      </property>
-      <property name="segmentStyle">
-       <enum>QLCDNumber::Flat</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QSlider" name="horizontalSlider">
-      <property name="maximum">
-       <number>10</number>
-      </property>
-      <property name="pageStep">
-       <number>1</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <property name="tickPosition">
-       <enum>QSlider::TicksAbove</enum>
-      </property>
-      <property name="tickInterval">
-       <number>0</number>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QwtThermo" name="Thermo">
+           <property name="upperBound">
+            <double>255.000000000000000</double>
+           </property>
+           <property name="alarmEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="alarmLevel">
+            <double>0.000000000000000</double>
+           </property>
+           <property name="pipeWidth">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QwtPlot" name="qwtPlot"/>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QwtThermo" name="Thermo_2">
+           <property name="upperBound">
+            <double>255.000000000000000</double>
+           </property>
+           <property name="alarmEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="alarmLevel">
+            <double>0.000000000000000</double>
+           </property>
+           <property name="pipeWidth">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QwtPlot" name="qwtPlot_2"/>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="sizeConstraint">
+            <enum>QLayout::SetFixedSize</enum>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLCDNumber" name="lcdNumber">
+         <property name="frameShape">
+          <enum>QFrame::NoFrame</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="smallDecimalPoint">
+          <bool>false</bool>
+         </property>
+         <property name="digitCount">
+          <number>2</number>
+         </property>
+         <property name="segmentStyle">
+          <enum>QLCDNumber::Flat</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSlider" name="horizontalSlider">
+         <property name="maximum">
+          <number>10</number>
+         </property>
+         <property name="pageStep">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="tickPosition">
+          <enum>QSlider::TicksAbove</enum>
+         </property>
+         <property name="tickInterval">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>
    <class>QwtPlot</class>
    <extends>QFrame</extends>
    <header>qwt_plot.h</header>
-  </customwidget>
-  <customwidget>
-   <class>QwtDial</class>
-   <extends>QWidget</extends>
-   <header>qwt_dial.h</header>
   </customwidget>
   <customwidget>
    <class>QwtThermo</class>

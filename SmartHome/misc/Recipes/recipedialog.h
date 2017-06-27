@@ -26,6 +26,7 @@ private:
 //	RecipeFormHome mRecipeFormHome;
 //	RecipeFormPage mRecipeFormPage;
 
+	void timerEvent(QTimerEvent *);
 private slots:
 	void readyRecipe(QString tmp);
 	void readRecipe();

@@ -20,21 +20,22 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->statusbar->addPermanentWidget(time_dialog);
 
 
-	air_Dialog   *dialogAir=new air_Dialog();
+	status_dialog   *dialogStatue=new status_dialog;
 	LightWindowDialog *dialogLight = new LightWindowDialog();
 	DialogSerial *dialogSerial = new DialogSerial();
 	qDebug() << "serial initial completed!";
 	PowerDialog *dialogPower = new PowerDialog(this);
 	qDebug() << "power initial completed";
+	//air_Dialog *dialogAir = new air_Dialog();
 
 
-
-	ui->stackedWidget->addWidget(dialogAir);
+	ui->stackedWidget->addWidget(dialogStatue);
 	ui->stackedWidget->addWidget(dialogSerial);
 	ui->stackedWidget->addWidget(dialogPower);
 	ui->stackedWidget->addWidget(dialogLight);
+	//ui->stackedWidget->addWidget(dialogAir);
 
-	ui->stackedWidget->setCurrentWidget(dialogAir);
+	ui->stackedWidget->setCurrentWidget(dialogStatue);
 
 
 

@@ -14,7 +14,7 @@
 #include "AirDialog/air_dialog.h"
 #include "PowerDialog/power_dialog.h"
 #include "misc/TTS/TTSDialog.h"
-
+#include "StatueDialog/status_dialog.h"
 
 
 class QToolButton;

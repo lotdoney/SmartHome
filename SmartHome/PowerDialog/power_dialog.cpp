@@ -11,18 +11,22 @@ PowerDialog::PowerDialog(QWidget *parent) :
 	qDebug() << "power initial start! \n";
 
 	initPlot();
+
+
 	connect(mSerialPort, SIGNAL(readFinish()), this, SLOT(serialDataProcess()));// 连接串口数据与显示槽
 	connect(this, SIGNAL(writeFinish()), mSerialPort, SLOT(slotSendData()));
 
 	connect(ui->horizontalSlider,SIGNAL(valueChanged(int)),this,SLOT(writePowrData()));
-
 //	QTimer *mTimer = new QTimer(this);
 
 //	connect(mTimer,SIGNAL(timeout()),this,SLOT(plotRefrash()));
 //	mTimer->start(200);
 
-	startTimer(100);
+	startTimer(500);
 	qDebug() << "power initial completed";
+//	cameraGet *mCamera = new cameraGet();
+
+//	ui->horizontalLayout_4->addWidget(mCamera);
 
 }
 
@@ -40,10 +44,10 @@ void PowerDialog::plotRefrash()
 
 void PowerDialog::initPlot()
 {
-	for(int x=0;x<10;x++)
+	for(int x=0;x<400;x++)
 	{
 	   xTime.append((double)x);
-	   yPower.append((double)x);
+	   yPower.append(0);
 	}
 
 
@@ -55,7 +59,7 @@ void PowerDialog::initPlot()
 //	ui->qwtPlot->setAxisScale(QwtPlot::yLeft, -1.0, 1.0);
 
 	//使用滚轮放大/缩小
-	(void) new QwtPlotMagnifier( ui->qwtPlot->canvas() );
+//	(void) new QwtPlotMagnifier( ui->qwtPlot->canvas() );
 
 	//使用鼠标左键平移
 	(void) new QwtPlotPanner( ui->qwtPlot->canvas() );
@@ -96,13 +100,13 @@ void PowerDialog::timerEvent(QTimerEvent *)
 	curve.setPen(QColor(Qt::white));
 
 	ui->qwtPlot->setAxisScale(QwtPlot::xBottom, xTime.last()-300, xTime.last());
-
+	ui->qwtPlot->setAxisScale(QwtPlot::yLeft, -10, 260);
 	//所有数据前移移位，首位被覆盖
 	xTime.append(xTime.last()+1);
 
 	//最后一位为新数据（这里为随机数模拟）
-//	yPower.append(yPower.last());
-	yPower.append(rand()%10);
+	yPower.append(yPower.last());
+//	yPower.append(rand()%10);
 
 
 	//重新加载数据
@@ -119,10 +123,10 @@ void PowerDialog::timerEvent(QTimerEvent *)
 	//清零向量
 
 	if(xTime.count() > 600)
-		xTime.remove(0, 300);
+		xTime.remove(0, 200);
 
 	if(yPower.count() > 600)
-		yPower.remove(0,300);
+		yPower.remove(0,200);
 
 }
 
@@ -131,8 +135,9 @@ void PowerDialog::serialDataProcess()
 {
 	if(!serialReceiveData.isEmpty()){
 
-		if("powr" == serialReceiveData.at(0)){
+		if("fans" == serialReceiveData.at(0)){
 			qDebug() << serialReceiveData;
+
 			yPower.append(serialReceiveData.at(1).toDouble());
 
 		}

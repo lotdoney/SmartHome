@@ -4,6 +4,13 @@
 #include <QObject>
 #include <QtNetwork>
 
+class Steps
+{
+public:
+
+	QString step;
+	QString img;
+};
 
 class Recipe
 {
@@ -14,7 +21,9 @@ public :
 	QString ingredients;
 	QString burden;
 	QString albums;
-	QStringList steps;
+//	QStringList steps;
+	Steps steps;
+	QList<Steps> stepList;
 };
 
 class RecipeRequest : public QObject

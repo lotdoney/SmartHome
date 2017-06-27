@@ -13,7 +13,10 @@
 #include <qwt_plot_panner.h>
 #include <qwt_legend.h>
 #include <qwt_dial.h>
+#include <qwt_dial_needle.h>
 #include <qwt_plot_grid.h>
+
+
 #include "SerialPort/serial_data.h"
 
 

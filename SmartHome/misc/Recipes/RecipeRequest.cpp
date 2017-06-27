@@ -44,7 +44,7 @@ bool RecipeRequest::replyFinish(QNetworkReply *reply)
 
 	if(data.property("reason").toString()!= "Success")
 	{
-		QMessageBox::information(NULL, "错误", "查询出现错误，请重新查询！");
+		QMessageBox::information(NULL, tr("错误."),tr("查询出现错误，请重新查询!"));
 		qDebug() << data.property("reason").toString();
 		return false;
 	}
@@ -53,7 +53,7 @@ bool RecipeRequest::replyFinish(QNetworkReply *reply)
 
 
 //	//外层JSOM表达式，翻译结果
-////	this->ui->outEdit->setText(sc.property("translation").toString());
+//	this->ui->outEdit->setText(sc.property("translation").toString());
 
 	//第二层JSON表达式，网络延伸
 	QScriptValue dataResult = data.property("result");
@@ -82,14 +82,18 @@ bool RecipeRequest::replyFinish(QNetworkReply *reply)
 	while (iteratorText.hasNext()){
 
 		iteratorText.next();
-		mRecipe.steps.append(iteratorText.value().property("step").toString());
+		mRecipe.steps.step = iteratorText.value().property("step").toString();
+		mRecipe.steps.img = iteratorText.value().property("img").toString();
+
+
+		mRecipe.stepList.append(mRecipe.steps);
 
 	}
 
 
 
 
-	qDebug() << mRecipe.steps;
+	qDebug() << mRecipe.steps.step;
 	emit recipeGot();
 
 	return true;
