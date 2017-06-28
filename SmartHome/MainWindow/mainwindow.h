@@ -7,10 +7,10 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QList>
 
-#include "ui_mainwindow.h"
+
 #include "SerialPort/dialogserial.h"
 #include "misc/timer/time_dialog.h"
-#include "light_window_dialog.h"
+#include "WindowDialog/light_window_dialog.h"
 #include "AirDialog/air_dialog.h"
 #include "PowerDialog/power_dialog.h"
 #include "misc/TTS/TTSDialog.h"

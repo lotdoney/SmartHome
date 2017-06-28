@@ -247,7 +247,7 @@
     </ClCompile>
     <ClCompile Include="SerialPort\dialogserial.cpp" />
     <ClCompile Include="misc\TTS\httprequest.cpp" />
-    <ClCompile Include="light_window_dialog.cpp" />
+    <ClCompile Include="WindowDialog\light_window_dialog.cpp" />
     <ClCompile Include="MainWindow\main.cpp" />
     <ClCompile Include="MainWindow\mainwindow.cpp" />
     <ClCompile Include="PowerDialog\power_dialog.cpp" />
@@ -333,7 +333,7 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
-    <CustomBuild Include="light_window_dialog.h">
+    <CustomBuild Include="WindowDialog\light_window_dialog.h">
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing light_window_dialog.h...</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
@@ -479,7 +479,7 @@
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
-    <CustomBuild Include="light_window_dialog.ui">
+    <CustomBuild Include="WindowDialog\light_window_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
@@ -569,6 +569,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\README.md" />
     <None Include="Res\image\air.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

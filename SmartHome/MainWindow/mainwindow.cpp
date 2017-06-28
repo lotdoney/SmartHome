@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
 	ui->setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
-
+	//连接手势信号和槽函数;
+	connect(&mCamera, SIGNAL(pageChanged(int)), this, SLOT(widgeIndexChanged(int)));
 	initButtons();
 
 
@@ -30,9 +31,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 	ui->stackedWidget->addWidget(dialogStatue);
-	ui->stackedWidget->addWidget(dialogSerial);
-	ui->stackedWidget->addWidget(dialogPower);
 	ui->stackedWidget->addWidget(dialogLight);
+	ui->stackedWidget->addWidget(dialogPower);
+	ui->stackedWidget->addWidget(dialogSerial);
 	//ui->stackedWidget->addWidget(dialogAir);
 
 	ui->stackedWidget->setCurrentWidget(dialogStatue);

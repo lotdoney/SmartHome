@@ -65,9 +65,6 @@
     <ClCompile Include="misc\TTS\httprequest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="light_window_dialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MainWindow\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -197,6 +194,9 @@
     <ClCompile Include="GeneratedFiles\qrc_resource.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="WindowDialog\light_window_dialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="misc\Recipes\RecipeRequest.h">
@@ -218,9 +218,6 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="misc\TTS\httprequest.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="light_window_dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="MainWindow\mainwindow.h">
@@ -250,6 +247,12 @@
     <CustomBuild Include="misc\timer\time_dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="WindowDialog\light_window_dialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="WindowDialog\light_window_dialog.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="misc\TTS\TTSDialog.ui">
@@ -262,9 +265,6 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="SerialPort\dialogserial.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="light_window_dialog.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="MainWindow\mainwindow.ui">
@@ -398,6 +398,7 @@
     <None Include="Res\image\tv.png">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_TTSDialog.h">

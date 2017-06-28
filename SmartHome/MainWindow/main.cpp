@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QDesktopWidget> 
 
 #include "commonhelper.h"
 
@@ -19,8 +20,9 @@ int main(int argc, char *argv[])
 
 
 	//w.setWindowFlags(Qt::Window);
-
-	w.showFullScreen();
+	w.move((QApplication::desktop()->screen(1)->width() - w.width()) / 2,
+		(0));
+	w.show();
 
 
 

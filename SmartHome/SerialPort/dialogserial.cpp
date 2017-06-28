@@ -12,7 +12,7 @@ DialogSerial::DialogSerial(QWidget *parent) :
 	on_pushButtonOpenPort_clicked();
 
 	connect(mSerialPort, SIGNAL(readFinish()), this, SLOT(serialDataDisplay()));// 连接串口数据与显示槽
-
+	ui->tabWidget->setCurrentIndex(0);
 }
 
 DialogSerial::~DialogSerial()
