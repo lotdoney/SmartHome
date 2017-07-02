@@ -100,7 +100,7 @@ bool RecipeRequest::replyFinish(QNetworkReply *reply)
 
 }
 
-void RecipeRequest::getRecipe(QString tmp)
+void RecipeRequest::getRecipe(QString tmp) //传入菜名称
 {
 
 	manager->get(QNetworkRequest(QUrl(API_request_url + "key=" + API_secret_key + "&menu=" + tmp + "&rn=1" )));

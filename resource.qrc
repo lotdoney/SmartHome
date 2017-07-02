@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Res/Gifs/load.gif</file>
+        <file>Res/image/air.png</file>
+        <file>Res/image/back_left.png</file>
+        <file>Res/image/back_right.png</file>
+        <file>Res/image/background.png</file>
+        <file>Res/image/button_black.png</file>
+        <file>Res/image/button_white.png</file>
+        <file>Res/image/button_yellow.png</file>
+        <file>Res/image/buttonback.png</file>
+        <file>Res/image/buttonback_p.png</file>
+        <file>Res/image/checkbox.png</file>
+        <file>Res/image/clear_to_overcast.png</file>
+        <file>Res/image/cloudy.png</file>
+        <file>Res/image/curtain.gif</file>
+        <file>Res/image/curtain.png</file>
+        <file>Res/image/down_arrow.png</file>
+        <file>Res/image/fine.png</file>
+        <file>Res/image/handle.png</file>
+        <file>Res/image/heavy_rain.png</file>
+        <file>Res/image/heavy_snow.png</file>
+        <file>Res/image/light.png</file>
+        <file>Res/image/mainwindow.png</file>
+        <file>Res/image/move.png</file>
+        <file>Res/image/music.png</file>
+        <file>Res/image/scouther.png</file>
+        <file>Res/image/security.png</file>
+        <file>Res/image/selectback.png</file>
+        <file>Res/image/setting.png</file>
+        <file>Res/image/sleet.png</file>
+        <file>Res/image/spit.png</file>
+        <file>Res/image/talkback.png</file>
+        <file>Res/image/thundershower.png</file>
+        <file>Res/image/timedialog.png</file>
+        <file>Res/image/tv.png</file>
+        <file>Res/my.qss</file>
+    </qresource>
+</RCC>
