@@ -33,10 +33,10 @@ public:
 
 private slots:
    void opencamera();      // 打开摄像头
-   void readFarme();       // 读取当前帧信息
    void filterCamera();
    void closecamera();     // 关闭摄像头。
    //void takingPictures();  // 拍照
+   void readFarme();       // 读取当前帧信息
 
 private:
    Ui::cameraGet *ui;
@@ -55,31 +55,32 @@ private:
    Mat mask;
    Mat dst;
 
-   int delay = 1;
+   int delay;
    char c;
-   int frameNum = -1;          // Frame counter  
-   bool lastImgHasHand = false;
+   int frameNum;          // Frame counter  
+   bool lastImgHasHand;
 
-   int previousX = 0;
-   int previousY = 0;
+   int previousX;
+   int previousY;
 
    //Size refS = Size( (int) captRefrnc.get(CV_CAP_PROP_FRAME_WIDTH),  
    //  (int) captRefrnc.get(CV_CAP_PROP_FRAME_HEIGHT) );  
 
-   bool bHandFlag = false;
+   bool bHandFlag ;
 
 
-   bool movement = false;
-   int count = 0;
+   bool movement;
+   int count ;
 
-   int presentX = 0;
-   int presentY = 0;
+   int presentX;
+   int presentY;
 
    //Mat to Qimage
    QImage Mat2QImage(const cv::Mat& mat);
 signals:
    void pageChanged(int);
 
+   void callVoice();
 };
 
 

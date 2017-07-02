@@ -30,6 +30,7 @@ public:
 
 
 	void setDevice(const QAudioDeviceInfo &device);
+	RecipeDialog mRecipeDialog;
 
 private:
 	Ui::TTSDialog *ui;
@@ -47,7 +48,6 @@ private:
 
 	HttpRequest mHttpRequest;
 	PullWord mPullWord;
-	RecipeDialog mRecipeDialog;
 
 public slots:
 

@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	//w.setWindowFlags(Qt::Window);
 	w.move((QApplication::desktop()->screen(1)->width() - w.width()) / 2,
 		(0));
-	w.show();
+	w.showFullScreen();
 
 
 

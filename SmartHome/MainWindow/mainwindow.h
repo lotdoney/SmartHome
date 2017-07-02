@@ -55,7 +55,7 @@ private slots:
 private:
 
 	Ui::MainWindow *ui;
-	cameraGet mCamera;
+	cameraGet *mCamera;
 //	TTSDialog mTTSDialog;
 	QList<QToolButton *> buttons;
 

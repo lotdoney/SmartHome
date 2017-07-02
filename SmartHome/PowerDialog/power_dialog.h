@@ -39,25 +39,36 @@ public:
 	~PowerDialog();
 
 
-	void writeTempData();
 private slots:
-	void plotRefrash();
 	void serialDataProcess();
-	void writePowrData();
 
-	void writeFansData();
+
 private:
 	Ui::PowerDialog *ui;
 	void initPlot();
 	void timerEvent(QTimerEvent *);
+	void curveFansRefrash();
+	void curveTempRefrsh();
 
+
+	void curvePowerRefrash();
+
+
+	
+	
 	QVector<double> yPower;
 	QVector<double> xTime;
-	QwtPlotCurve  curve;
+	QVector<double> yFans;
+	QVector<double> yTemp1;
+	QVector<double> yTemp2;
 
-signals:
+	QwtPlotCurve  curvePower;
+	QwtPlotCurve  curveTemp1;
+	QwtPlotCurve  curveTemp2;
+	QwtPlotCurve  curveFans;
 
-	void writeFinish();
+	QwtDialSimpleNeedle *mNeedle;
+
 };
 
 #endif // PowerDialog/power_dialog_H

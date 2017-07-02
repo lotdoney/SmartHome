@@ -10,7 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	ui->setupUi(this);
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	//连接手势信号和槽函数;
-	connect(&mCamera, SIGNAL(pageChanged(int)), this, SLOT(widgeIndexChanged(int)));
+	mCamera = new cameraGet(this);
+	connect(mCamera, SIGNAL(pageChanged(int)), this, SLOT(widgeIndexChanged(int)));
+	connect(mCamera, SIGNAL(callVoice()), this, SLOT(on_pushButtonTTS_clicked()));
+
 	initButtons();
 
 
@@ -31,9 +34,9 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 	ui->stackedWidget->addWidget(dialogStatue);
-	ui->stackedWidget->addWidget(dialogLight);
-	ui->stackedWidget->addWidget(dialogPower);
 	ui->stackedWidget->addWidget(dialogSerial);
+	ui->stackedWidget->addWidget(dialogPower);
+	ui->stackedWidget->addWidget(dialogLight);
 	//ui->stackedWidget->addWidget(dialogAir);
 
 	ui->stackedWidget->setCurrentWidget(dialogStatue);
@@ -42,12 +45,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	ui->statusbar->showMessage("warning!");
 
-	mCamera.show();
+	mCamera->show();
 }
 
 MainWindow::~MainWindow()
 {
-
 	delete ui;
 }
 
@@ -113,7 +115,9 @@ void MainWindow::on_pushButtonTTS1_clicked()
 
 void MainWindow::on_pushButtonTTS_clicked()
 {
+
 	TTSDialog *mTTS = new TTSDialog();
+
 	mTTS->setModal(true);
 	mTTS->start();
 	mTTS->exec();

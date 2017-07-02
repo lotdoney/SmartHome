@@ -14,6 +14,26 @@ cameraGet::cameraGet(QWidget *parent) :
 	timer   = new QTimer(this);
 	imag    = new QImage();         // 初始化
 
+	delay = 1;
+	
+	frameNum = -1;          // Frame counter  
+	lastImgHasHand = false;
+
+	previousX = 0;
+	previousY = 0;
+
+	//Size refS = Size( (int) captRefrnc.get(CV_CAP_PROP_FRAME_WIDTH),  
+	//  (int) captRefrnc.get(CV_CAP_PROP_FRAME_HEIGHT) );  
+
+	bHandFlag = false;
+
+
+	movement = false;
+	count = 0;
+
+	presentX = 0;
+	presentY = 0;
+
 	/*信号和槽*/
 	connect(timer, SIGNAL(timeout()), this, SLOT(readFarme()));  // 时间到，读取当前摄像头信息
 	connect(ui->open, SIGNAL(clicked()), this, SLOT(opencamera()));
@@ -140,25 +160,26 @@ void cameraGet::readFarme()
 	{
 		if (lastImgHasHand == true)
 		{
-			if ((previousX - presentX) < 0)//中文的大括号和英文的大括号用肉眼看不出来，坑啊  
+			if ((previousX - presentX) < 50)//中文的大括号和英文的大括号用肉眼看不出来，坑啊  
 			{
 				printf("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<left\n");//镜像，没有flip过来，所以这里注意点。  
 				qDebug() << "Detect  left";
 				emit pageChanged(PAGE_LEFT);
 			}
-			if ((previousX - presentX) > 0)
+			if ((previousX - presentX) > 50)
 			{
 				printf(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>right\n");
 				qDebug() << "Detect right";
 				emit pageChanged(PAGE_RIGHT);
 			}
-			if ((previousY - presentY) < 0)
+			if ((previousY - presentY) < 50)
 			{
 				printf("downVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV\n");
 			}
-			if ((previousY - presentY) > 0)
+			if ((previousY - presentY) > 50)
 			{
 				printf("upAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa\n");
+				emit callVoice();
 			}
 
 			count = 0;
