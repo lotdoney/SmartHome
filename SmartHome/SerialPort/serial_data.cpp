@@ -39,7 +39,7 @@ void SerialPort::slotReadData()
 		byteArray.append(tmp);					//对收到的数据进行缓冲
 		qDebug() << "buff is "<< byteArray;
 
-		if(!byteArray.contains('#') || !byteArray.contains('\n')){	//检验是否为完整数据包
+		if(!byteArray.contains('#') || !byteArray.contains('\n') || !byteArray.contains('*')){	//检验是否为完整数据包
 			waitForReadyRead(10);			//不是就等待，并返回
 			return;
 		}
@@ -50,7 +50,9 @@ void SerialPort::slotReadData()
 		QList<QByteArray> list = byteArray.trimmed().split('*');//	去掉最后作为结束符的\n
 		//分割*
 		qDebug() << "finally" << byteArray.trimmed();
+		
 		serialReceiveData = list;
+		serialReceiveData.append(0);
 		byteArray.clear();
 		emit readFinish();
 	}

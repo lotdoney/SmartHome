@@ -9,6 +9,9 @@ LightWindowDialog::LightWindowDialog(QWidget *parent) :
     ui->setupUi(this);
 
 	setWindowFlags(Qt::FramelessWindowHint); //把窗口设置成没框架的
+
+	connect(this, SIGNAL(writeFinish()), mSerialPort, SLOT(slotSendData()));
+	connect(this->ui->horizontalSlider, SIGNAL(actionTriggered(int)), this, SLOT(writePowrData()));
 }
 
 LightWindowDialog::~LightWindowDialog()

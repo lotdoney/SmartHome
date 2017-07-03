@@ -54,8 +54,23 @@ void status_dialog::serialDataProcess()
 			}
 
 		}
+		if ("siren" == serialReceiveData.at(0))
+		{
+			if (serialReceiveData.at(1) == "1")
+			{
+				ui->label_3->setText(" 安全.");
+			}
+			else
+			{
+				ui->label_3->setText(" 不安全.");
+
+			}
+
+		}
 	}
 }
+
+
 
 void status_dialog::writeWindData(QString on_off)
 {

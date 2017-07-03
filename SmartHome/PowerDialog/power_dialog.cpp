@@ -24,7 +24,7 @@ PowerDialog::PowerDialog(QWidget *parent) :
 //	connect(mTimer,SIGNAL(timeout()),this,SLOT(plotRefrash()));
 //	mTimer->start(200);
 
-	startTimer(50);
+	startTimer(500);
 	qDebug() << "power initial completed";
 //	cameraGet *mCamera = new cameraGet();
 
@@ -162,8 +162,10 @@ void PowerDialog::curveTempRefrsh()
 
 	ui->qwtPlot_3->setAxisScale(QwtPlot::xBottom, xTime.last() - 300, xTime.last());
 
-	yTemp2.append(rand()%10);
-	yTemp1.append(rand()%10);
+	yTemp1.append(yTemp1.last());
+	yTemp2.append(yTemp2.last());
+	//yTemp2.append(rand()%10);
+	//yTemp1.append(rand()%10);
 	//重新加载数据
 	curveTemp1.setSamples(xTime, yTemp1);
 	curveTemp2.setSamples(xTime, yTemp2);
@@ -196,8 +198,8 @@ void PowerDialog::curveFansRefrash()
 
 
 	//最后一位为新数据（这里为随机数模拟）
-	//yFans.append(yFans.last());
-	yFans.append(rand()%10);
+	yFans.append(yFans.last());
+	//yFans.append(rand()%10);
 
 
 	//重新加载数据

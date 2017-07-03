@@ -13,37 +13,20 @@ MainWindow::MainWindow(QWidget *parent) :
 	mCamera = new cameraGet(this);
 	connect(mCamera, SIGNAL(pageChanged(int)), this, SLOT(widgeIndexChanged(int)));
 	connect(mCamera, SIGNAL(callVoice()), this, SLOT(on_pushButtonTTS_clicked()));
+	
+	connect(mSerialPort, SIGNAL(readFinish()), this, SLOT(serialDataProcess()));// 连接串口数据与显示槽
+
+
+	client = new QTcpSocket(this);
+
 
 	initButtons();
+	jsonInit();
+	uiInit();
+
+	startTimer(5000);
 
 
-	Time_Dialog *time_dialog=new Time_Dialog(this);
-//	ui->verticalLayout->addWidget(time_dialog);
-
-	//状态栏添加时钟
-	ui->statusbar->addPermanentWidget(time_dialog);
-
-
-	status_dialog   *dialogStatue=new status_dialog;
-	LightWindowDialog *dialogLight = new LightWindowDialog();
-	DialogSerial *dialogSerial = new DialogSerial();
-	qDebug() << "serial initial completed!";
-	PowerDialog *dialogPower = new PowerDialog(this);
-	qDebug() << "power initial completed";
-	//air_Dialog *dialogAir = new air_Dialog();
-
-
-	ui->stackedWidget->addWidget(dialogStatue);
-	ui->stackedWidget->addWidget(dialogSerial);
-	ui->stackedWidget->addWidget(dialogPower);
-	ui->stackedWidget->addWidget(dialogLight);
-	//ui->stackedWidget->addWidget(dialogAir);
-
-	ui->stackedWidget->setCurrentWidget(dialogStatue);
-
-
-
-	ui->statusbar->showMessage("warning!");
 
 	mCamera->show();
 }
@@ -52,7 +35,6 @@ MainWindow::~MainWindow()
 {
 	delete ui;
 }
-
 
 
 
@@ -110,6 +92,22 @@ void MainWindow::on_toolButton_4_clicked()
 
 void MainWindow::on_pushButtonTTS1_clicked()
 {
+	client->connectToHost(QHostAddress("192.168.1.1"), 8383);
+	if (client->isOpen())
+	{
+		qDebug() << "connected";
+	}
+	if (client->isOpen())
+	{
+		QJsonDocument document;
+		document.setArray(json);
+		QByteArray byte_array = document.toJson(QJsonDocument::Compact);
+		QString json_str(byte_array);
+		qDebug() << json_str;
+
+		client->write(json_str.toLatin1().trimmed() + "\n");
+		client->close();
+	}
 
 }
 
@@ -133,4 +131,117 @@ void MainWindow::widgeIndexChanged(int pageChange)
 	{
 		ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() + 1);
 	}
+}
+
+void MainWindow::jsonInit()
+{
+	json.insert(0, "");
+	json.insert(1, "");
+	json.insert(2, "");
+	json.insert(3, "");
+}
+
+
+void MainWindow::timerEvent(QTimerEvent *)
+{
+	client->connectToHost(QHostAddress("192.168.1.1"), 8383);
+	if (client->isOpen())
+	{
+		qDebug() << "connected";
+	}
+	if (client->isOpen())
+	{
+		QJsonDocument document;
+		document.setArray(json);
+		QByteArray byte_array = document.toJson(QJsonDocument::Compact);
+		QString json_str(byte_array);
+		qDebug() << json_str;
+
+		client->write(json_str.toLatin1().trimmed() + "\n");
+		client->close();
+	}
+}
+
+
+
+void MainWindow::serialDataProcess()
+{
+
+	if (!serialReceiveData.isEmpty())
+	{
+
+		if ("elec" == serialReceiveData.at(0))
+		{
+
+			if ("p" == serialReceiveData.at(1))
+			{
+				qDebug() << serialReceiveData;
+
+
+				json.replace(0, serialReceiveData.at(2).toDouble());
+
+
+			}
+			if ("w" == serialReceiveData.at(1))
+			{
+				qDebug() << serialReceiveData;
+
+				//ui->lcdNumber_2->display(serialReceiveData.at(2).toDouble());
+			}
+		}
+
+		if ("fans" == serialReceiveData.at(0))
+		{
+			qDebug() << serialReceiveData;
+
+			//yFans.append(serialReceiveData.at(1).toDouble());
+		}
+
+		if ("temp" == serialReceiveData.at(0))
+		{
+			qDebug() << serialReceiveData;
+		
+			json.replace(1, serialReceiveData.at(1).toDouble());
+			json.replace(2, serialReceiveData.at(2).toDouble());
+
+		}
+		if ("fans" == serialReceiveData.at(0))
+		{
+			json.replace(3, serialReceiveData.at(1).toDouble());
+		}
+	}
+
+}
+
+void MainWindow::uiInit()
+{
+
+	Time_Dialog *time_dialog = new Time_Dialog(this);
+	//	ui->verticalLayout->addWidget(time_dialog);
+
+	//状态栏添加时钟
+	ui->statusbar->addPermanentWidget(time_dialog);
+
+
+	status_dialog   *dialogStatue = new status_dialog;
+	LightWindowDialog *dialogLight = new LightWindowDialog();
+	DialogSerial *dialogSerial = new DialogSerial();
+	qDebug() << "serial initial completed!";
+	PowerDialog *dialogPower = new PowerDialog(this);
+	qDebug() << "power initial completed";
+	//air_Dialog *dialogAir = new air_Dialog();
+
+
+	ui->stackedWidget->addWidget(dialogStatue);
+	ui->stackedWidget->addWidget(dialogSerial);
+	ui->stackedWidget->addWidget(dialogPower);
+	ui->stackedWidget->addWidget(dialogLight);
+	//ui->stackedWidget->addWidget(dialogAir);
+
+	ui->stackedWidget->setCurrentWidget(dialogStatue);
+
+
+
+	ui->statusbar->showMessage("warning!");
+
 }

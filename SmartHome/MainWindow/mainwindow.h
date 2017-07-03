@@ -6,7 +6,9 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include <QList>
-
+#include <QTimer>
+#include <QEvent>
+#include <QTcpSocket> 
 
 #include "SerialPort/dialogserial.h"
 #include "misc/timer/time_dialog.h"
@@ -17,12 +19,14 @@
 #include "StatueDialog/status_dialog.h"
 #include "misc/Camera/cameraget.h"
 
-class QToolButton;
-
+#include "SerialPort/serial_data.h"
 
 extern SerialPort *mSerialPort;
+extern QList<QByteArray> serialReceiveData;
+extern QStringList serialSendData;
 
 
+class QToolButton;
 namespace Ui {
 class MainWindow;
 }
@@ -45,6 +49,7 @@ private slots:
 
 	void on_toolButton_1_clicked();
 
+	void serialDataProcess();
 	void on_toolButton_4_clicked();
 
 	void on_pushButtonTTS1_clicked();
@@ -58,8 +63,14 @@ private:
 	cameraGet *mCamera;
 //	TTSDialog mTTSDialog;
 	QList<QToolButton *> buttons;
+	QJsonArray json;
+	QTcpSocket *client;
+	
 
+	void jsonInit();
+	void timerEvent(QTimerEvent *);
 	void initButtons();
+	void uiInit();
 };
 
 #endif // MAINWINDOW_H
