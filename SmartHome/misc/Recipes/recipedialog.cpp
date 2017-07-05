@@ -1,5 +1,6 @@
 #include "recipedialog.h"
 #include "ui_recipedialog.h"
+#include <QMessageBox>
 
 RecipeDialog::RecipeDialog(QWidget *parent) :
 	QDialog(parent),
@@ -11,8 +12,13 @@ RecipeDialog::RecipeDialog(QWidget *parent) :
 	this->setWindowOpacity(0.9);
 	this->showFullScreen();
 
-	startTimer(15000);
+	startTimer(10000);
 
+	if(QMessageBox::Yes == QMessageBox::question(NULL, "Make a chose", "Open The SmartMode "))
+	{
+		smartMode = true;
+	}
+	connect(this, SIGNAL(writeFinish()), mSerialPort, SLOT(slotSendData()));
 
 	connect(&mRecipeRequest, SIGNAL(recipeGot()), this, SLOT(readRecipe()));
 }
@@ -25,7 +31,7 @@ RecipeDialog::~RecipeDialog()
 void RecipeDialog::readRecipe()
 {
 	qDebug() << "dialog got title" << mRecipeRequest.mRecipe.title;
-
+	
 	RecipeFormHome *mRecipeFormHome = new RecipeFormHome();
 
 	mRecipeFormHome->setContents(mRecipeRequest.mRecipe);
@@ -72,9 +78,29 @@ void RecipeDialog::on_pushButtonPre_clicked()
 		ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() - 1);
 }
 
+bool RecipeDialog::isSmartMode()
+{
+	return smartMode;
+}
+
 void RecipeDialog::timerEvent(QTimerEvent *)
 {
 	ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() + 1);
+	if (this->isSmartMode())
+	{
+		serialSendData.clear();
+
+		serialSendData.append("powr"); // 添加头
+		int tmp = rand() % 11;
+		if (tmp < 10) {
+			serialSendData.append(QString::number(tmp));
+			/*由于zigbee 判断单字节的数据9的ascii 后面的是 : 所以为10 的时候发送 : 的ascii*/
+		}
+		else {
+			serialSendData.append(":");
+		}
+
+	}
 	if(ui->stackedWidget->currentIndex() == ui->stackedWidget->count() - 1){
 		this->close();
 	}

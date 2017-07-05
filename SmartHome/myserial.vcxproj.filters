@@ -399,6 +399,7 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\README.md" />
+    <None Include="Res\new.qss" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_TTSDialog.h">

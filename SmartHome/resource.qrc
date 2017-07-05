@@ -35,5 +35,6 @@
         <file>Res/image/timedialog.png</file>
         <file>Res/image/tv.png</file>
         <file>Res/my.qss</file>
+        <file>Res/new.qss</file>
     </qresource>
 </RCC>

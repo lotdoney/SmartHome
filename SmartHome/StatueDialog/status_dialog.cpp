@@ -93,3 +93,4 @@ void status_dialog::initPlot()
 	grid->attach(ui->qwtPlot);
 
 }
+
