@@ -58,7 +58,12 @@ void PowerDialog::initPlot()
 
 	//设置坐标轴的名称
 	ui->qwtPlot->setAxisTitle(QwtPlot::xBottom, "x-> Time");
-	ui->qwtPlot->setAxisTitle(QwtPlot::yLeft, "y->");
+	ui->qwtPlot->setAxisTitle(QwtPlot::yLeft, "y-> 实时功率");
+
+	ui->qwtPlot_3->setAxisTitle(QwtPlot::yLeft, "温度");
+	ui->qwtPlot_3->setAxisTitle(QwtPlot::yRight, "湿度");
+
+	ui->qwtPlot_2->setAxisTitle(QwtPlot::yLeft, "烟雾浓度");
 	//设置坐标轴的范围
 //	ui->qwtPlot->setAxisScale(QwtPlot::xBottom, 0.0, 2.0 * M_PI);
 //	ui->qwtPlot->setAxisScale(QwtPlot::yLeft, -1.0, 1.0);
