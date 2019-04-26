@@ -36,7 +36,7 @@
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
-
+	QApplication::addLibraryPath("./plugins");
 	CommonHelper::setStyle(":/Res/my.qss");
 	QFont mFont;
 	mFont.setPointSize(18);
@@ -44,12 +44,12 @@ int main(int argc, char *argv[])
 	a.setFont(mFont);
 
 	MainWindow w;
+	
 	//flag 设为窗口模式
 
 
 	//w.setWindowFlags(Qt::Window);
-	w.move((QApplication::desktop()->screen(1)->width() - w.width()) / 2,
-		(0)); 
+	w.move((QApplication::desktop()->screen(2)->width() - w.width()) / 2, (0)); 
 	w.showFullScreen();
 
 

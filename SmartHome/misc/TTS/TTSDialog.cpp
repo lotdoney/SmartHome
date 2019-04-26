@@ -26,6 +26,7 @@ TTSDialog::TTSDialog(QWidget *parent) :
 	connect(&mHttpRequest, SIGNAL(requestSuccess()), this, SLOT(getText()));
 	connect(&mPullWord, SIGNAL(pullWordSuccess()), this, SLOT(getWord()));
 	connect(this, SIGNAL(recipeRequested(QString)), &mRecipeDialog, SLOT(readyRecipe(QString)));
+	connect(&mHttpRequest, SIGNAL(requestFail()), this, SLOT(Fail()));
 }
 
 TTSDialog::~TTSDialog()
@@ -118,6 +119,13 @@ bool TTSDialog::finish()
 	return true;
 }
 
+void TTSDialog::Fail(void)
+{
+	this->close();
+	mRecipeDialog.close();
+}
+
+//分词
 void TTSDialog::getText()
 {
 	QString tmp = mHttpRequest.ttsText;
@@ -127,6 +135,8 @@ void TTSDialog::getText()
 
 void TTSDialog::getWord()
 {
+	//分词没有做
+
 	QString tmp = mPullWord.pullWord;
 	qDebug() << tmp;
 	emit recipeRequested(tmp);

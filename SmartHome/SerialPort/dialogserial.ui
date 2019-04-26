@@ -41,7 +41,7 @@
       <string notr="true"/>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabSerial">
       <attribute name="title">
@@ -138,7 +138,7 @@
              <item>
               <widget class="QLabel" name="lblParity">
                <property name="text">
-                <string> 奇偶校验位</string>
+                <string> 奇偶校验</string>
                </property>
               </widget>
              </item>

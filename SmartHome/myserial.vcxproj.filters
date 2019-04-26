@@ -47,16 +47,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="misc\Recipes\RecipeRequest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="misc\TTS\TTSDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AirDialog\air_dialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="misc\camera\cameraget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SerialPort\dialogserial.cpp">
@@ -75,15 +69,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="misc\TTS\pullword.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="misc\Recipes\recipedialog.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="misc\Recipes\recipeformhome.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="misc\Recipes\recipeformpage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SerialPort\serial_data.cpp">
@@ -149,12 +134,6 @@
     <ClCompile Include="Release\moc_dialogserial.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="Debug\moc_cameraget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Release\moc_cameraget.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="Debug\moc_time_dialog.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -197,18 +176,24 @@
     <ClCompile Include="WindowDialog\light_window_dialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="misc\Recipes\recipedialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="misc\Recipes\recipeformhome.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="misc\Recipes\recipeformpage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="misc\Recipes\RecipeRequest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="misc\Recipes\RecipeRequest.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="misc\TTS\TTSDialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="AirDialog\air_dialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\camera\cameraget.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
     <ClInclude Include="commonhelper.h">
@@ -229,15 +214,6 @@
     <CustomBuild Include="misc\TTS\pullword.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="misc\Recipes\recipedialog.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\Recipes\recipeformhome.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\Recipes\recipeformpage.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="SerialPort\serial_data.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
@@ -253,15 +229,33 @@
     <CustomBuild Include="WindowDialog\light_window_dialog.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="misc\Recipes\recipedialog.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="misc\Recipes\recipedialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="misc\Recipes\recipeformhome.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="misc\Recipes\recipeformhome.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="misc\Recipes\recipeformpage.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="misc\Recipes\recipeformpage.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="misc\Recipes\RecipeRequest.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="misc\TTS\TTSDialog.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="AirDialog\air_dialog.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\camera\cameraget.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="SerialPort\dialogserial.ui">
@@ -271,15 +265,6 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="PowerDialog\power_dialog.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\Recipes\recipedialog.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\Recipes\recipeformhome.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="misc\Recipes\recipeformpage.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="StatueDialog\status_dialog.ui">
@@ -400,15 +385,13 @@
     </None>
     <None Include="..\README.md" />
     <None Include="Res\new.qss" />
+    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_TTSDialog.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_air_dialog.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_cameraget.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_dialogserial.h">

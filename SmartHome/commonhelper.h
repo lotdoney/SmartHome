@@ -1,15 +1,12 @@
 #ifndef COMMONHELPER_H
 #define COMMONHELPER_H
 
-
 #include <QFile>
 #include <QApplication>
 #include <QTextStream>
 class CommonHelper
 {
 public:
-
-
 	static void setStyle(const QString &style)
 	{
 			   QFile qss(style);
@@ -17,7 +14,6 @@ public:
 			   qApp->setStyleSheet(qss.readAll());
 			   qss.close();
 	 }
-
 };
 
 #endif // COMMONHELPER_H

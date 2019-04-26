@@ -53,11 +53,10 @@ public slots:
 
 	bool start(void);
 	bool finish(void);
-
+	void Fail(void);
 private slots:
 	void getText();
 	void getWord();
-
 signals:
 
 	void recipeRequested(QString tmp);

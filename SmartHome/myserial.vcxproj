@@ -1,6 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
@@ -14,11 +22,20 @@
     <ProjectGuid>{4A4B23BC-4E12-3A01-B5C7-C80D88352425}</ProjectGuid>
     <RootNamespace>intelligent</RootNamespace>
     <Keyword>Qt4VSv1.0</Keyword>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <PlatformToolSet>v141</PlatformToolSet>
+    <PlatformToolSet>v142</PlatformToolSet>
+    <OutputDirectory>release\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>release\</IntermediateDirectory>
+    <PrimaryOutput>intelligent</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <PlatformToolSet>v142</PlatformToolSet>
     <OutputDirectory>release\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
@@ -27,7 +44,16 @@
     <PrimaryOutput>intelligent</PrimaryOutput>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <PlatformToolSet>v141</PlatformToolSet>
+    <PlatformToolSet>v142</PlatformToolSet>
+    <OutputDirectory>debug\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>Application</ConfigurationType>
+    <IntermediateDirectory>debug\</IntermediateDirectory>
+    <PrimaryOutput>intelligent</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <PlatformToolSet>v142</PlatformToolSet>
     <OutputDirectory>debug\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
@@ -40,24 +66,49 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">intelligent</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">intelligent</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(Platform)\$(Configuration)\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">intelligent</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">intelligent</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</IgnoreImportLibrary>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>F:\Qt\Qt5.6.0_MSCV\5.6\msvc2015\include;F:\Code\Qwt6.1.3\include\;F:\Code\CV2.4.9\include\opencv2;F:\Code\CV2.4.9\include\opencv;F:\Code\CV2.4.9\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <IncludePath>F:\Qt\Qt5.6.0_MSCV\5.6\msvc2015\include;F:\Code\Qwt6.1.3\include\;F:\Code\CV2.4.9\include\opencv2;F:\Code\CV2.4.9\include\opencv;F:\Code\CV2.4.9\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>F:\Code\CV2.4.9\include;F:\Code\CV2.4.9\include\opencv;F:\Code\CV2.4.9\include\opencv2;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <IncludePath>F:\Code\CV2.4.9\include;F:\Code\CV2.4.9\include\opencv;F:\Code\CV2.4.9\include\opencv2;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;E:\Code\CV2.4.9\include\;E:\Code\CV2.4.9\include\opencv;E:\Code\CV2.4.9\include\opencv2;..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore;release;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(QTDIR)\include\QtScript;.;release;.\GeneratedFiles;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>release\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -66,7 +117,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>MaxSpeed</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_DLL;QWT_DLL;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;QT_SCRIPT_LIB;QT_CORE_LIB;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QWT_DLL;QT_NO_DEBUG;QT_SCRIPT_LIB;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_SERIALPORT_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -76,8 +127,8 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\qtmain.lib;shell32.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\qwt.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Widgets.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Multimedia.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Gui.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5SerialPort.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Network.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Script.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Core.lib;opencv_ml249.lib;opencv_calib3d249.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_objdetect249.lib;opencv_ts249.lib;opencv_video249.lib;opencv_nonfree249.lib;opencv_ocl249.lib;opencv_photo249.lib;opencv_stitching249.lib;opencv_superres249.lib;opencv_videostab249.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib;E:\Code\CV2.4.9\lib\Release;$(QTDIR)\lib;E:\Qt\Qt5.3.2\5.3\mingw482_32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>qtmain.lib;shell32.lib;qwt.lib;Qt5Script.lib;opencv_ml249.lib;opencv_calib3d249.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_objdetect249.lib;opencv_ts249.lib;opencv_video249.lib;opencv_nonfree249.lib;opencv_ocl249.lib;opencv_photo249.lib;opencv_stitching249.lib;opencv_superres249.lib;opencv_videostab249.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Network.lib;Qt5SerialPort.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Code\CV2.4.9\lib\Release;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -85,7 +136,49 @@
       <LinkIncremental>false</LinkIncremental>
       <OutputFile>$(OutDir)\intelligent.exe</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_DLL;QWT_DLL;QT_NO_DEBUG;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;QT_SCRIPT_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(QTDIR)\include;$(QTDIR)\include\QtScript;.;release;.\GeneratedFiles;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>release\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QWT_DLL;QT_NO_DEBUG;QT_SCRIPT_LIB;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_SERIALPORT_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>qtmain.lib;shell32.lib;qwt.lib;Qt5Script.lib;opencv_ml249.lib;opencv_calib3d249.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_objdetect249.lib;opencv_ts249.lib;opencv_video249.lib;opencv_nonfree249.lib;opencv_ocl249.lib;opencv_photo249.lib;opencv_stitching249.lib;opencv_superres249.lib;opencv_videostab249.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Network.lib;Qt5SerialPort.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\Code\CV2.4.9\lib\Release;$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkIncremental>false</LinkIncremental>
+      <OutputFile>$(OutDir)\intelligent.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Link>
     <Midl>
@@ -99,7 +192,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>.;E:\Code\CV2.4.9\include\opencv2;E:\Code\CV2.4.9\include\opencv;E:\Code\CV2.4.9\include;..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore;debug;..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015;.\GeneratedFiles;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt;$(QTDIR)\include;$(QTDIR)\include\QtScript;debug;$(QTDIR)\mkspecs\win32-msvc2015;.\GeneratedFiles;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>debug\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -108,7 +201,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_DLL;QWT_DLL;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;QT_SCRIPT_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QWT_DLL;QT_SCRIPT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_SERIALPORT_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -118,7 +211,48 @@
       <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\qtmaind.lib;shell32.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\qwtd.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Widgetsd.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Multimediad.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Guid.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5SerialPortd.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Networkd.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Scriptd.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\Qt5Cored.lib;opencv_ml249d.lib;opencv_calib3d249d.lib;opencv_contrib249d.lib;opencv_core249d.lib;opencv_features2d249d.lib;opencv_flann249d.lib;opencv_gpu249d.lib;opencv_highgui249d.lib;opencv_imgproc249d.lib;opencv_legacy249d.lib;opencv_objdetect249d.lib;opencv_ts249d.lib;opencv_video249d.lib;opencv_nonfree249d.lib;opencv_ocl249d.lib;opencv_photo249d.lib;opencv_stitching249d.lib;opencv_superres249d.lib;opencv_videostab249d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>qwtd.lib;qtmaind.lib;shell32.lib;Qt5Scriptd.lib;opencv_ml249d.lib;opencv_calib3d249d.lib;opencv_contrib249d.lib;opencv_core249d.lib;opencv_features2d249d.lib;opencv_flann249d.lib;opencv_gpu249d.lib;opencv_highgui249d.lib;opencv_imgproc249d.lib;opencv_legacy249d.lib;opencv_objdetect249d.lib;opencv_ts249d.lib;opencv_video249d.lib;opencv_nonfree249d.lib;opencv_ocl249d.lib;opencv_photo249d.lib;opencv_stitching249d.lib;opencv_superres249d.lib;opencv_videostab249d.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Multimediad.lib;Qt5Networkd.lib;Qt5SerialPortd.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>F:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib;F:\Code\CV2.4.9\lib\Debug;$(QTDIR)\lib;F:\Qt\Qt5.3.2\5.3\mingw482_32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <OutputFile>$(OutDir)\intelligent.exe</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QT_DLL;QWT_DLL;QT_WIDGETS_LIB;QT_MULTIMEDIA_LIB;QT_GUI_LIB;QT_SERIALPORT_LIB;QT_NETWORK_LIB;QT_SCRIPT_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt;$(QTDIR)\include;$(QTDIR)\include\QtScript;debug;$(QTDIR)\mkspecs\win32-msvc2015;.\GeneratedFiles;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtMultimedia;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtWidgets;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:strictStrings -Zc:throwingNew -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>debug\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;WIN32;QWT_DLL;QT_SCRIPT_LIB;QT_CORE_LIB;QT_GUI_LIB;QT_MULTIMEDIA_LIB;QT_NETWORK_LIB;QT_SERIALPORT_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+      <ProgramDataBaseFileName>$(IntDir)vc$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>qtmaind.lib;shell32.lib;E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib\qwtd.lib;Qt5Scriptd.lib;opencv_ml249d.lib;opencv_calib3d249d.lib;opencv_contrib249d.lib;opencv_core249d.lib;opencv_features2d249d.lib;opencv_flann249d.lib;opencv_gpu249d.lib;opencv_highgui249d.lib;opencv_imgproc249d.lib;opencv_legacy249d.lib;opencv_objdetect249d.lib;opencv_ts249d.lib;opencv_video249d.lib;opencv_nonfree249d.lib;opencv_ocl249d.lib;opencv_photo249d.lib;opencv_stitching249d.lib;opencv_superres249d.lib;opencv_videostab249d.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Multimediad.lib;Qt5Networkd.lib;Qt5SerialPortd.lib;Qt5Widgetsd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>E:\QT\QT5.6.0_MSCV\5.6\MSVC2015\lib;E:\Code\CV2.4.9\lib\Debug;$(QTDIR)\lib;E:\Qt\Qt5.3.2\5.3\mingw482_32\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
@@ -141,109 +275,136 @@
   <ItemGroup>
     <ClCompile Include="Debug\moc_air_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Debug\moc_cameraget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_dialogserial.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_httprequest.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_light_window_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_power_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_pullword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_recipedialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_recipeformhome.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_recipeformpage.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_RecipeRequest.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_serial_data.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_status_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_time_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Debug\moc_TTSDialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_resource.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+      </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="misc\Recipes\RecipeRequest.cpp" />
     <ClCompile Include="misc\TTS\TTSDialog.cpp" />
     <ClCompile Include="AirDialog\air_dialog.cpp" />
-    <ClCompile Include="misc\camera\cameraget.cpp" />
     <ClCompile Include="Release\moc_air_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="Release\moc_cameraget.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_dialogserial.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_httprequest.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_light_window_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_mainwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_power_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_pullword.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_recipedialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_recipeformhome.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_recipeformpage.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_RecipeRequest.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_serial_data.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_status_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_time_dialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Release\moc_TTSDialog.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SerialPort\dialogserial.cpp" />
     <ClCompile Include="misc\TTS\httprequest.cpp" />
@@ -261,7 +422,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_air_dialog.h" />
-    <ClInclude Include="GeneratedFiles\ui_cameraget.h" />
     <ClInclude Include="GeneratedFiles\ui_dialogserial.h" />
     <ClInclude Include="GeneratedFiles\ui_light_window_dialog.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
@@ -273,453 +433,719 @@
     <ClInclude Include="GeneratedFiles\ui_time_dialog.h" />
     <ClInclude Include="GeneratedFiles\ui_TTSDialog.h" />
     <CustomBuild Include="misc\Recipes\RecipeRequest.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing RecipeRequest.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing RecipeRequest.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing RecipeRequest.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing RecipeRequest.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\TTS\TTSDialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing TTSDialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing TTSDialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing TTSDialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing TTSDialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="AirDialog\air_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing air_dialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing air_dialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing air_dialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing air_dialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-    </CustomBuild>
-    <CustomBuild Include="misc\camera\cameraget.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing cameraget.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing cameraget.h...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <ClInclude Include="commonhelper.h" />
     <CustomBuild Include="SerialPort\dialogserial.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing dialogserial.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing dialogserial.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing dialogserial.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing dialogserial.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\TTS\httprequest.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing httprequest.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing httprequest.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing httprequest.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing httprequest.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="WindowDialog\light_window_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing light_window_dialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing light_window_dialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing light_window_dialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing light_window_dialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="MainWindow\mainwindow.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing mainwindow.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing mainwindow.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing mainwindow.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing mainwindow.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="PowerDialog\power_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing power_dialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing power_dialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing power_dialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing power_dialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\TTS\pullword.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing pullword.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing pullword.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing pullword.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing pullword.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\Recipes\recipedialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing recipedialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing recipedialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing recipedialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing recipedialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\Recipes\recipeformhome.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing recipeformhome.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing recipeformhome.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing recipeformhome.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing recipeformhome.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\Recipes\recipeformpage.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing recipeformpage.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing recipeformpage.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing recipeformpage.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing recipeformpage.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="SerialPort\serial_data.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing serial_data.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing serial_data.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing serial_data.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing serial_data.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="StatueDialog\status_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing status_dialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing status_dialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing status_dialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing status_dialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="misc\timer\time_dialog.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB -DNDEBUG  "-I." "-IE:\Code\CV2.4.9\include" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include\opencv2" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\release" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_NO_DEBUG -DQT_SCRIPT_LIB -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I." "-I.\release" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing time_dialog.h...</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQT_DLL -DQWT_DLL -DQT_WIDGETS_LIB -DQT_MULTIMEDIA_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_NETWORK_LIB -DQT_SCRIPT_LIB -DQT_CORE_LIB  "-I." "-IE:\Code\CV2.4.9\include\opencv2" "-IE:\Code\CV2.4.9\include\opencv" "-IE:\Code\CV2.4.9\include" "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtWidgets" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtMultimedia" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtGui" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtANGLE" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtSerialPort" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtNetwork" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtScript" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\include\QtCore" "-I.\debug" "-I.\..\..\..\..\QT\QT5.6.0_MSCV\5.6\MSVC2015\mkspecs\win32-msvc2015" "-I.\GeneratedFiles"</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Moc%27ing time_dialog.h...</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o "$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -DUNICODE -DWIN32 -DQWT_DLL -DQT_SCRIPT_LIB -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_SERIALPORT_LIB -DQT_WIDGETS_LIB -D%(PreprocessorDefinitions)  "-I." "-I.\..\..\..\Qt5.3.2\5.3\mingw482_32\include\Qwt" "-I$(QTDIR)\include" "-I$(QTDIR)\include\QtScript" "-I.\debug" "-I$(QTDIR)\mkspecs\win32-msvc2015" "-I.\GeneratedFiles" "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtANGLE" "-I$(QTDIR)\include\QtMultimedia" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtSerialPort" "-I$(QTDIR)\include\QtWidgets"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing time_dialog.h...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Moc%27ing time_dialog.h...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="misc\TTS\TTSDialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="AirDialog\air_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-    </CustomBuild>
-    <CustomBuild Include="misc\camera\cameraget.ui">
-      <FileType>Document</FileType>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="SerialPort\dialogserial.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="WindowDialog\light_window_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="MainWindow\mainwindow.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="PowerDialog\power_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="misc\Recipes\recipedialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="misc\Recipes\recipeformhome.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="misc\Recipes\recipeformpage.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="StatueDialog\status_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
     <CustomBuild Include="misc\timer\time_dialog.ui">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+    <None Include="cpp.hint" />
     <None Include="Res\image\air.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\back_left.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\back_right.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\background.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\button_black.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\button_white.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\button_yellow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\buttonback.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\buttonback_p.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\checkbox.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\clear_to_overcast.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\cloudy.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\curtain.gif">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\curtain.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\down_arrow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\fine.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\handle.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\heavy_rain.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\heavy_snow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\light.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\Gifs\load.gif">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\mainwindow.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\move.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\music.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\my.qss">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <CustomBuild Include="resource.qrc">
       <FileType>Document</FileType>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(FullPath);.\Res\Gifs\load.gif;.\Res\image\air.png;.\Res\image\back_left.png;.\Res\image\back_right.png;.\Res\image\background.png;.\Res\image\button_black.png;.\Res\image\button_white.png;.\Res\image\button_yellow.png;.\Res\image\buttonback.png;.\Res\image\buttonback_p.png;.\Res\image\checkbox.png;.\Res\image\clear_to_overcast.png;.\Res\image\cloudy.png;.\Res\image\curtain.gif;.\Res\image\curtain.png;.\Res\image\down_arrow.png;.\Res\image\fine.png;.\Res\image\handle.png;.\Res\image\heavy_rain.png;.\Res\image\heavy_snow.png;.\Res\image\light.png;.\Res\image\mainwindow.png;.\Res\image\move.png;.\Res\image\music.png;.\Res\image\scouther.png;.\Res\image\security.png;.\Res\image\selectback.png;.\Res\image\setting.png;.\Res\image\sleet.png;.\Res\image\spit.png;.\Res\image\talkback.png;.\Res\image\thundershower.png;.\Res\image\timedialog.png;.\Res\image\tv.png;.\Res\my.qss;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">%(FullPath);.\Res\Gifs\load.gif;.\Res\image\air.png;.\Res\image\back_left.png;.\Res\image\back_right.png;.\Res\image\background.png;.\Res\image\button_black.png;.\Res\image\button_white.png;.\Res\image\button_yellow.png;.\Res\image\buttonback.png;.\Res\image\buttonback_p.png;.\Res\image\checkbox.png;.\Res\image\clear_to_overcast.png;.\Res\image\cloudy.png;.\Res\image\curtain.gif;.\Res\image\curtain.png;.\Res\image\down_arrow.png;.\Res\image\fine.png;.\Res\image\handle.png;.\Res\image\heavy_rain.png;.\Res\image\heavy_snow.png;.\Res\image\light.png;.\Res\image\mainwindow.png;.\Res\image\move.png;.\Res\image\music.png;.\Res\image\scouther.png;.\Res\image\security.png;.\Res\image\selectback.png;.\Res\image\setting.png;.\Res\image\sleet.png;.\Res\image\spit.png;.\Res\image\talkback.png;.\Res\image\thundershower.png;.\Res\image\timedialog.png;.\Res\image\tv.png;.\Res\my.qss;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Rcc%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Rcc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(FullPath);.\Res\Gifs\load.gif;.\Res\image\air.png;.\Res\image\back_left.png;.\Res\image\back_right.png;.\Res\image\background.png;.\Res\image\button_black.png;.\Res\image\button_white.png;.\Res\image\button_yellow.png;.\Res\image\buttonback.png;.\Res\image\buttonback_p.png;.\Res\image\checkbox.png;.\Res\image\clear_to_overcast.png;.\Res\image\cloudy.png;.\Res\image\curtain.gif;.\Res\image\curtain.png;.\Res\image\down_arrow.png;.\Res\image\fine.png;.\Res\image\handle.png;.\Res\image\heavy_rain.png;.\Res\image\heavy_snow.png;.\Res\image\light.png;.\Res\image\mainwindow.png;.\Res\image\move.png;.\Res\image\music.png;.\Res\image\scouther.png;.\Res\image\security.png;.\Res\image\selectback.png;.\Res\image\setting.png;.\Res\image\sleet.png;.\Res\image\spit.png;.\Res\image\talkback.png;.\Res\image\thundershower.png;.\Res\image\timedialog.png;.\Res\image\tv.png;.\Res\my.qss;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">%(FullPath);.\Res\Gifs\load.gif;.\Res\image\air.png;.\Res\image\back_left.png;.\Res\image\back_right.png;.\Res\image\background.png;.\Res\image\button_black.png;.\Res\image\button_white.png;.\Res\image\button_yellow.png;.\Res\image\buttonback.png;.\Res\image\buttonback_p.png;.\Res\image\checkbox.png;.\Res\image\clear_to_overcast.png;.\Res\image\cloudy.png;.\Res\image\curtain.gif;.\Res\image\curtain.png;.\Res\image\down_arrow.png;.\Res\image\fine.png;.\Res\image\handle.png;.\Res\image\heavy_rain.png;.\Res\image\heavy_snow.png;.\Res\image\light.png;.\Res\image\mainwindow.png;.\Res\image\move.png;.\Res\image\music.png;.\Res\image\scouther.png;.\Res\image\security.png;.\Res\image\selectback.png;.\Res\image\setting.png;.\Res\image\sleet.png;.\Res\image\spit.png;.\Res\image\talkback.png;.\Res\image\thundershower.png;.\Res\image\timedialog.png;.\Res\image\tv.png;.\Res\my.qss;%(AdditionalInputs)</AdditionalInputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">"$(QTDIR)\bin\rcc.exe" -name "%(Filename)" -no-compress "%(FullPath)" -o .\GeneratedFiles\qrc_%(Filename).cpp</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Rcc%27ing %(Identity)...</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Rcc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">.\GeneratedFiles\qrc_%(Filename).cpp;%(Outputs)</Outputs>
     </CustomBuild>
     <None Include="Res\image\scouther.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\security.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\selectback.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\setting.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\sleet.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\spit.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\talkback.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\thundershower.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\timedialog.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\image\tv.png">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
     </None>
     <None Include="Res\new.qss" />
   </ItemGroup>
@@ -727,7 +1153,7 @@
   <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" Qt5Version_x0020_Win32="msvc2015" />
+      <UserProperties UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOnBuild="0" Qt5Version_x0020_Win32="msvc2015" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -7,16 +7,25 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "myserial", "myserial.vcxpro
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
 		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Debug|ARM.ActiveCfg = Debug|ARM
+		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Debug|ARM.Build.0 = Debug|ARM
 		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Debug|x86.ActiveCfg = Debug|Win32
 		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Debug|x86.Build.0 = Debug|Win32
+		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Release|ARM.ActiveCfg = Release|ARM
+		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Release|ARM.Build.0 = Release|ARM
 		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Release|x86.ActiveCfg = Release|Win32
 		{4A4B23BC-4E12-3A01-B5C7-C80D88352425}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73E28952-B60A-427A-AD29-3650255CE31B}
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,7 @@
 !.gitignore
 SmartHome/.vs
-SmartHome/debug
-SmartHome/GeneratedFiles
-SmartHome/Win32
-SmartHome/release
+SmartHome/debug/
+SmartHome/GeneratedFiles/
+SmartHome/Win32/
+SmartHome/release/
 .vs

@@ -15,7 +15,7 @@
 RecipeRequest::RecipeRequest()
 {
 
-	API_secret_key = "8d55799ad4cae19fde4e6b0838b9375b";
+	API_secret_key = "d0e63d9f7a44c172557a0c958b435cfc";
 	API_request_url = "http://apis.juhe.cn/cook/query?";
 
 	manager = new QNetworkAccessManager();

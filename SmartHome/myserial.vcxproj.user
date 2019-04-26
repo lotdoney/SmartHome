@@ -4,11 +4,25 @@
     <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <QTDIR>E:\Qt\Qt5.6.0_MSCV\5.6\msvc2015</QTDIR>
+    <QTDIR>F:\Qt\Qt5.6.0_MSCV\5.6\msvc2015</QTDIR>
+    <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <QTDIR>F:\Qt\Qt5.6.0_MSCV\5.6\msvc2015</QTDIR>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <QTDIR>E:\Qt\Qt5.6.0_MSCV\5.6\msvc2015</QTDIR>
+    <QTDIR>F:\Qt\Qt5.6.0_MSCV\5.6\msvc2015</QTDIR>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <LocalDebuggerAmpDefaultAccelerator>{ADEFF70D-84BF-47A1-91C3-FF6B0FC71218}</LocalDebuggerAmpDefaultAccelerator>
+    <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <QTDIR>F:\Qt\Qt5.6.0_MSCV\5.6\msvc2015</QTDIR>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+    <LocalDebuggerAttach>false</LocalDebuggerAttach>
+    <LocalDebuggerAmpDefaultAccelerator>{ADEFF70D-84BF-47A1-91C3-FF6B0FC71218}</LocalDebuggerAmpDefaultAccelerator>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
 </Project>

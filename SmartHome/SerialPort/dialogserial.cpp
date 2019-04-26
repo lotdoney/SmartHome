@@ -53,9 +53,9 @@ void DialogSerial::initPort()
 	ui->comboBoxBaudRate->addItems(baudList);
 	ui->comboBoxBaudRate->setCurrentIndex(11);
 
-	parityList << "无." << "奇校验." << "偶校验.";
-	parityList << "标志";
-	parityList << "空格";
+	parityList << "None" << "ODD" << "EVEN";
+	//parityList << "标志";
+	//parityList << "空格";
 
 	ui->comboBoxParity->addItems(parityList);
 	ui->comboBoxParity->setCurrentIndex(0);
@@ -220,6 +220,13 @@ void DialogSerial::on_pushButtonTest_clicked()
 
 void DialogSerial::on_pushButton_clicked()
 {
+	ui->comboBoxBaudRate->clear();
+	ui->comboBoxDataBits->clear();
+	ui->comboBoxFlowControl->clear();
+	ui->comboBoxParity->clear();
+	ui->comboBoxPortName->clear();
+	ui->comboBoxStopBits->clear();
+
 	this->initPort();
 }
 

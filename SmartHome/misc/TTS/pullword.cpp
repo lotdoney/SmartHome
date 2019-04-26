@@ -3,9 +3,9 @@
 #include <QJsonDocument>
 #include <QJsonParseError>
 
-#include <QScriptEngine>
-#include <QScriptValue>
-#include <QScriptValueIterator>
+//#include <QScriptEngine>
+//#include <QScriptValue>
+//#include <QScriptValueIterator>
 
 PullWord::PullWord(void)
 {

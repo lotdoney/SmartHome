@@ -85,6 +85,8 @@ void HttpRequest::replyFinish(QNetworkReply * reply)
 			}
 			if(API_access_token==""){
 				QMessageBox::warning(NULL,"警告.","access_token口令获取失败.");
+				emit requestFail();
+				return;
 			}
 			flag=0;
 

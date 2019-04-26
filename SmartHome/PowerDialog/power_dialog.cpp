@@ -201,25 +201,20 @@ void PowerDialog::curveFansRefrash()
 	//所有数据前移移位，首位被覆盖
 	ui->qwtPlot_2->setAxisScale(QwtPlot::xBottom, xTime.last() - 300, xTime.last());
 
-
 	//最后一位为新数据（这里为随机数模拟）
 	yFans.append(yFans.last());
 	//yFans.append(rand()%10);
 
-
 	//重新加载数据
 	curveFans.setSamples(xTime, yFans);
-
 
 	//QwtPlot重绘，重要，没有这句不起作用
 	ui->qwtPlot_2->replot();
 
 	//设置状态条的值
-
 	ui->Thermo_2->setValue(yFans.last());
 
 	//清零向量
-
 	if (yFans.count() > 600)
 		yFans.remove(200);
 }
